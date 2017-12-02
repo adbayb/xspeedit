@@ -59,4 +59,4 @@ typings/
 
 # Custom dirs/files
 .DS_Store
-dist
+dist/
