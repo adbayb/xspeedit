@@ -1,24 +1,16 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 version: 2
 jobs:
   build:
     docker:
       # specify the version you desire here
-      # carbon is the codename for latest lts version (e.g. 8.9.1):
+      # carbon est le nom de code pour la dernière version lts de node.js (ie. 8.9.1):
       - image: circleci/node:carbon
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
 
+    # Steps décrit notre pipeline CI:
     steps:
+      # Récupération du code (git checkout) depuis le repo distant:
       - checkout
 
-      # Download and cache dependencies
       - restore_cache:
           name: Restore node_modules cache
           keys:
@@ -40,7 +32,7 @@ jobs:
 
       - run:
           name: Test coverage
-          command: cat ./coverage/lcov.info
+          command: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
       - save_cache:
           name: Save node_modules cache

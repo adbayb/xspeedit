@@ -10,6 +10,7 @@
   "author": "Ayoub Adib <adbayb@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "coveralls": "^3.0.0",
     "cz-conventional-changelog": "2.1.0",
     "jest": "21.2.1"
   },
