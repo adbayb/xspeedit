@@ -1,2 +1,3 @@
-# xspeedit
+# xspeedit [![CircleCI](https://circleci.com/gh/adbayb/xspeedit.svg?style=shield)](https://circleci.com/gh/adbayb/xspeedit) [![Coverage Status](https://coveralls.io/repos/github/adbayb/xspeedit/badge.svg?branch=master)](https://coveralls.io/github/adbayb/xspeedit?branch=master) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/adbayb/xspeedit/blob/master/LICENSE) [![GitHub package version](https://img.shields.io/badge/package-0.1.0-orange.svg)](https://github.com/adbayb/xspeedit/releases)
+
 Parce qu'il est important de lutter contre le gaspillage de carton
