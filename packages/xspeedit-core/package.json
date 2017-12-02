@@ -7,9 +7,8 @@
   "browser": "dist/xspeedit-core.browser.js",
   "module": "src/index.js",
   "scripts": {
+	"prepublish": "npm run build",
     "prebuild": "npm run clean",
-    "prepublishOnly": "npm run build",
-    "postinstall": "npm run build",
     "clean": "rimraf dist",
     "build:node": "cross-env BABEL_ENV=node rollup --config",
     "build:browser": "cross-env BABEL_ENV=browser rollup --config",

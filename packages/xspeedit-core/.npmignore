@@ -3,6 +3,6 @@
 
 # Allow (liste blanche):
 !dist/**/*
-!index.js
+!src/**/*
 !README.md
 !LICENSE

@@ -3,7 +3,12 @@
 		"browser": true,
 		"node": true,
 		"es6": true,
-		"commonjs": true
+		"commonjs": true,
+		"jest/globals": true
+	},
+	"globals": {
+		"shallow": true,
+		"mount": true
 	},
 	"parser": "babel-eslint",
 	"parserOptions": {
@@ -14,8 +19,8 @@
 		},
 		"sourceType": "module"
 	},
-	"extends": ["eslint:recommended", "plugin:react/recommended"],
-	"plugins": ["react", "prettier"],
+	"extends": ["eslint:recommended", "plugin:react/recommended", "plugin:jest/recommended"],
+	"plugins": ["react", "prettier", "jest"],
 	"rules": {
 		"prettier/prettier": "error",
 		"complexity": ["error", 5],
