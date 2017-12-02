@@ -1,13 +1,13 @@
 {
   "private": true,
   "scripts": {
-    "prepush": "lint-staged",
+    "precommit": "lint-staged",
     "postinstall": "npm run install:core && npm run install:widget && npm run install:node",
     "install:core": "cd packages/xspeedit-core && npm install",
     "install:widget": "cd packages/xspeedit-widget && npm install",
 	"install:node": "cd packages/xspeedit-node && npm install",
 	"start:widget": "cd packages/xspeedit-widget && npm start",
-	"test:update": "jest -- --updateSnapshot",
+	"test:update": "jest --updateSnapshot",
     "test": "jest",
     "format": "prettier --write **/*.{js,jsx,json,css}",
 	"lint": "eslint ."

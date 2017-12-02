@@ -3,8 +3,28 @@
   "private": true,
   "version": "0.1.0",
   "description": "Application Node.js consommant la librarie xspeedit",
-  "main": "index.js",
-  "scripts": {},
+  "main": "dist/app.js",
+  "module": "src/index.js",
+  "scripts": {
+	"prebuild": "rimraf ./dist",
+	"build": "rollup --config",
+    "start": "node ./dist/app.js"
+  },
   "author": "Ayoub Adib <adbayb@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "xspeedit-core": "../xspeedit-core"
+  },
+  "devDependencies": {
+	"babel-cli": "6.26.0",
+    "babel-plugin-external-helpers": "6.22.0",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-stage-2": "6.24.1",
+    "cross-env": "^5.1.1",
+    "rimraf": "2.6.2",
+    "rollup": "0.52.0",
+    "rollup-plugin-babel": "3.0.2",
+    "rollup-plugin-babel-minify": "3.1.2",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  }
 }

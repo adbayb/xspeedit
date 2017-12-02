@@ -1,28 +1,29 @@
 import React, { Component, Fragment } from "react";
-import Packager, { optimizedStrategy, actualStrategy } from "xspeedit-core";
+import Packager, { optimizedStrategy, unoptimizedStrategy } from "xspeedit-core";
 
 import Chart from "../components/Chart";
 import Input from "../components/Input";
 
 class MainPanel extends Component {
 	state = {
-		optimizedBoxes: [],
-		unoptimizedBoxes: []
+		optiBoxes: [],
+		unoptiBoxes: [],
+		formattedOptiBoxes: [],
+		formattedUnoptiBoxes: []
 	};
-	packager = new Packager("", 10);
+	packager = new Packager(10);
 
 	handleInputSubmit = input => {
-		this.packager.input = input;
-		this.setState(
-			() => ({
-				optimizedBoxes: this.packager.setStrategy(optimizedStrategy).resolve(),
-				unoptimizedBoxes: this.packager.setStrategy(actualStrategy).resolve()
-			}),
-			() => {
-				console.log(this.state, "STATE");
-			}
-		);
-		console.log("isInputValid: here result", input, this.packager);
+		this.packager.setInput(input);
+
+		const { raw: optiBoxes, formatted: formattedOptiBoxes } = this.packager
+			.setStrategy(optimizedStrategy)
+			.resolve();
+		const { raw: unoptiBoxes, formatted: formattedUnoptiBoxes } = this.packager
+			.setStrategy(unoptimizedStrategy)
+			.resolve();
+
+		this.setState(() => ({ optiBoxes, unoptiBoxes, formattedOptiBoxes, formattedUnoptiBoxes }));
 	};
 
 	isInputValid = input => {
@@ -30,25 +31,25 @@ class MainPanel extends Component {
 	};
 
 	render() {
-		const { optimizedBoxes, unoptimizedBoxes } = this.state;
+		const { optiBoxes, unoptiBoxes, formattedOptiBoxes, formattedUnoptiBoxes } = this.state;
 
 		return (
 			<Fragment>
 				<Input label="Objets" onValidate={this.isInputValid} onSubmit={this.handleInputSubmit} />
-				{unoptimizedBoxes &&
-					unoptimizedBoxes.length > 0 && (
+				{unoptiBoxes &&
+					unoptiBoxes.length > 0 && (
 						<Chart
 							key="main-actual"
-							title={`Rangement non optimisé: ${unoptimizedBoxes.length} carton(s)`}
-							data={unoptimizedBoxes}
+							title={`Non optimisé: ${unoptiBoxes.length} carton(s) => ${formattedUnoptiBoxes} `}
+							data={unoptiBoxes}
 						/>
 					)}
-				{optimizedBoxes &&
-					optimizedBoxes.length > 0 && (
+				{optiBoxes &&
+					optiBoxes.length > 0 && (
 						<Chart
 							key="main-optimized"
-							title={`Rangement optimisé: ${optimizedBoxes.length} carton(s)`}
-							data={optimizedBoxes}
+							title={`Optimisé: ${optiBoxes.length} carton(s) => ${formattedOptiBoxes}`}
+							data={optiBoxes}
 						/>
 					)}
 			</Fragment>

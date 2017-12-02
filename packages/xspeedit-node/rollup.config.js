@@ -5,7 +5,7 @@ import resolve from "rollup-plugin-node-resolve";
 export default {
 	input: "src/index.js",
 	output: {
-		file: `dist/xspeedit-core.${process.env.BABEL_ENV}.js`,
+		file: `dist/app.js`,
 		format: "cjs"
 	},
 	plugins: [
