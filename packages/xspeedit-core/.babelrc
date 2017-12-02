@@ -1,0 +1,42 @@
+{
+	"env": {
+		"test": {
+			"presets": [
+				[
+					"env",
+					{
+						"debug": false,
+						"modules": "commonjs",
+						"targets": {
+							"node": "current"
+						},
+						"useBuiltIns": true
+					}
+				]
+			]
+		},
+		"node": {
+			"presets": [
+				[
+					"env",
+					{
+						"modules": false,
+						"targets": { "node": true }
+					}
+				]
+			]
+		},
+		"browser": {
+			"presets": [
+				[
+					"env",
+					{
+						"modules": false,
+						"targets": { "browsers": ["last 2 versions", "safari >= 7"] }
+					}
+				]
+			]
+		}
+	},
+	"presets": ["stage-2"]
+}

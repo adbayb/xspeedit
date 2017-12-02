@@ -1,0 +1,8 @@
+# Ignore:
+*
+
+# Allow (liste blanche):
+!dist/**/*
+!index.js
+!README.md
+!LICENSE

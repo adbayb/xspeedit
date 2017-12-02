@@ -1,0 +1,10 @@
+{
+  "name": "xspeedit-node",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Application Node.js consommant la librarie xspeedit",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Ayoub Adib <adbayb@gmail.com>",
+  "license": "MIT"
+}

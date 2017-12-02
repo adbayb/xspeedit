@@ -1,0 +1,29 @@
+{
+  "name": "xspeedit-widget",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Application web consommant la librarie xspeedit",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
+  },
+  "author": "Ayoub Adib <adbayb@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "2.2.5",
+    "next": "4.1.4",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-styleguidist": "6.0.33",
+    "xspeedit-core": "../xspeedit-core"
+  },
+  "devDependencies": {
+    "enzyme": "3.2.0",
+    "enzyme-adapter-react-16": "1.1.0",
+    "enzyme-to-json": "3.2.2",
+    "prop-types": "15.6.0"
+  }
+}
