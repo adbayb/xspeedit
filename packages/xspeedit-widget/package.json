@@ -4,11 +4,15 @@
   "version": "0.1.0",
   "description": "Application web consommant la librarie xspeedit",
   "scripts": {
+	"prebuild": "npm run clean",
+    "clean": "rimraf ./dist ./out",
     "dev": "next",
     "build": "next build",
-    "start": "next build && next start",
+    "start": "npm run build && next start",
+    "export": "npm run build && next export",
+	"deploy": "npm run export && npm run styleguide:build",
     "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+	"styleguide:build": "styleguidist build && cp -R ./static ./styleguide"
   },
   "author": "Ayoub Adib <adbayb@gmail.com>",
   "license": "MIT",
@@ -24,6 +28,7 @@
     "enzyme": "3.2.0",
     "enzyme-adapter-react-16": "1.1.0",
     "enzyme-to-json": "3.2.2",
-    "prop-types": "15.6.0"
+    "prop-types": "15.6.0",
+    "rimraf": "^2.6.2"
   }
 }

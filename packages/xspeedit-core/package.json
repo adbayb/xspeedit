@@ -12,6 +12,7 @@
     "predoc": "npm run clean:doc",
     "clean:build": "rimraf ./dist",
     "clean:doc": "rimraf ./doc",
+    "deploy": "npm run doc",
     "doc": "jsdoc ./src -d ./doc",
     "build:node": "cross-env BABEL_ENV=node rollup --config",
     "build:browser": "cross-env BABEL_ENV=browser rollup --config",
@@ -36,5 +37,8 @@
     "rollup-plugin-babel": "3.0.2",
     "rollup-plugin-babel-minify": "3.1.2",
     "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "engines": {
+    "node": ">= 6.12.0"
   }
 }
