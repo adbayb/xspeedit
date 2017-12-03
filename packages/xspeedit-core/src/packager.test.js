@@ -61,7 +61,7 @@ describe("Packager", () => {
 		packager.setInput("01234");
 		const thrower = () => packager.setStrategy(strategy);
 		// THEN: une erreur doit être capturée:
-		expect(thrower).toThrowError(/strategy is not a function/);
+		expect(thrower).toThrowError(/is not a function/);
 	});
 
 	it("should resolve correctly", () => {
@@ -72,6 +72,15 @@ describe("Packager", () => {
 		packager.setStrategy(strategy);
 		// THEN: une erreur doit être capturée:
 		expect(packager.resolve()).toEqual({ raw: [[1, 2], [3, 4]], formatted: "12/34" });
+	});
+
+	it("should set capacity correctly", () => {
+		// GIVEN: une capacité:
+		const capacity = 25;
+		// WHEN: nous affectons la capacité à l'instance Packager:
+		packager.capacity = capacity;
+		// THEN: la propriété capacity a bien été affectée:
+		expect(packager.capacity).toBe(25);
 	});
 
 	describe("contructor", () => {

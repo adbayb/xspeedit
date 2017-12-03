@@ -13,7 +13,7 @@
     "clean:build": "rimraf ./dist",
     "clean:doc": "rimraf ./doc",
     "deploy": "npm run doc",
-    "doc": "jsdoc ./src -d ./doc",
+    "doc": "jsdoc ./src --destination ./doc --recurse",
     "build:node": "cross-env BABEL_ENV=node rollup --config",
     "build:browser": "cross-env BABEL_ENV=browser rollup --config",
     "build": "npm run build:node && npm run build:browser",
