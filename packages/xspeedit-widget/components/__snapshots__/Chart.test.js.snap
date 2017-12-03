@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chart should render correctly 1`] = `
+<section
+  className="jsx-509116290"
+>
+  <h1
+    className="jsx-509116290"
+  >
+    CHART
+  </h1>
+  <div
+    className="jsx-509116290"
+  >
+    <div
+      className="jsx-1123166150 box"
+      key="0"
+    >
+      <div
+        className="jsx-2145737142 object"
+        key="0"
+      >
+        1
+        <JSXStyle
+          css=".object.__jsx-style-dynamic-selector{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;color:black;font-size:0.9rem;background-color:#FFECB3;-webkit-flex:none;-ms-flex:none;flex:none;height:10%;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}"
+          dynamic={
+            Array [
+              "#FFECB3",
+              10,
+            ]
+          }
+          styleId="1993202757"
+        />
+      </div>
+      <div
+        className="jsx-1757275421 object"
+        key="1"
+      >
+        2
+        <JSXStyle
+          css=".object.__jsx-style-dynamic-selector{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;color:black;font-size:0.9rem;background-color:#FFE082;-webkit-flex:none;-ms-flex:none;flex:none;height:20%;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}"
+          dynamic={
+            Array [
+              "#FFE082",
+              20,
+            ]
+          }
+          styleId="1993202757"
+        />
+      </div>
+      <JSXStyle
+        css=".box.jsx-1123166150{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;-webkit-flex:none;-ms-flex:none;flex:none;width:50px;margin-right:10px;background-color:black;border:3px solid black;}"
+        styleId="1123166150"
+      />
+    </div>
+    <div
+      className="jsx-1123166150 box"
+      key="1"
+    >
+      <div
+        className="jsx-981346144 object"
+        key="0"
+      >
+        3
+        <JSXStyle
+          css=".object.__jsx-style-dynamic-selector{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;color:black;font-size:0.9rem;background-color:#FFD54F;-webkit-flex:none;-ms-flex:none;flex:none;height:30%;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}"
+          dynamic={
+            Array [
+              "#FFD54F",
+              30,
+            ]
+          }
+          styleId="1993202757"
+        />
+      </div>
+      <div
+        className="jsx-2081856332 object"
+        key="1"
+      >
+        4
+        <JSXStyle
+          css=".object.__jsx-style-dynamic-selector{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;color:black;font-size:0.9rem;background-color:#FFCA28;-webkit-flex:none;-ms-flex:none;flex:none;height:40%;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}"
+          dynamic={
+            Array [
+              "#FFCA28",
+              40,
+            ]
+          }
+          styleId="1993202757"
+        />
+      </div>
+      <JSXStyle
+        css=".box.jsx-1123166150{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;-webkit-flex:none;-ms-flex:none;flex:none;width:50px;margin-right:10px;background-color:black;border:3px solid black;}"
+        styleId="1123166150"
+      />
+    </div>
+  </div>
+  <JSXStyle
+    css="section.jsx-509116290{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-flex:1;-ms-flex:1;flex:1;padding:20px 10px;}section.jsx-509116290:nth-child(2){padding-bottom:0;}h1.jsx-509116290{margin:0 0 20px 0;font-size:12px;font-weight:bold;}div.jsx-509116290{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;overflow-x:scroll;-webkit-flex:1;-ms-flex:1;flex:1;}"
+    styleId="509116290"
+  />
+</section>
+`;

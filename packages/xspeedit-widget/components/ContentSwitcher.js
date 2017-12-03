@@ -36,7 +36,7 @@ const ContentSwitcher = ({ children, isActive }) => {
 };
 
 ContentSwitcher.propTypes = {
-	isActive: PropTypes.bool.isRequired,
+	isActive: PropTypes.bool,
 	children: PropTypes.node
 };
 

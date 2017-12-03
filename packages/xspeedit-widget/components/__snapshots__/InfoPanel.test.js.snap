@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoPanel should render correctly 1`] = `
+<section
+  className="jsx-3052590751"
+>
+  <h1
+    className="jsx-3052590751"
+  >
+    Préambule:
+  </h1>
+  <p
+    className="jsx-3052590751"
+  >
+    XspeedIt est une société d'import / export ayant robotisé toute sa chaîne d'emballage de colis.
+  </p>
+  <h1
+    className="jsx-3052590751"
+  >
+    But:
+  </h1>
+  <p
+    className="jsx-3052590751"
+  >
+    La société souhaite trouver un algorithme permettant à ses robots d'optimiser le nombre de cartons d'emballage utilisés. Cette application essaye donc de répondre à cette problématique.
+  </p>
+  <h1
+    className="jsx-3052590751"
+  >
+    Propriétés des cartons et articles:
+  </h1>
+  <p
+    className="jsx-3052590751"
+  >
+    Les articles à emballer sont de taille variable, représentée par un entier compris entre 1 et 9. Chaque carton a une capacité de contenance de 10. Ainsi, un carton peut par exemple contenir un article de taille 3, un article de taille 1, et un article de taille 6.
+  </p>
+  <JSXStyle
+    css="section.jsx-3052590751{padding:0 15px;overflow-y:scroll;}h1.jsx-3052590751{margin:30px 0 20px 0;color:white;}"
+    styleId="3052590751"
+  />
+</section>
+`;

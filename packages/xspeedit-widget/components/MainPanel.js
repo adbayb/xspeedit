@@ -5,6 +5,10 @@ import Chart from "../components/Chart";
 import Input from "../components/Input";
 
 class MainPanel extends Component {
+	static isInputValid = input => {
+		return input && input.length > 0 && /^\d+$/.test(input);
+	};
+
 	state = {
 		optiBoxes: [],
 		unoptiBoxes: [],
@@ -26,16 +30,16 @@ class MainPanel extends Component {
 		this.setState(() => ({ optiBoxes, unoptiBoxes, formattedOptiBoxes, formattedUnoptiBoxes }));
 	};
 
-	isInputValid = input => {
-		return input && input.length > 0 && /^\d+$/.test(input);
-	};
-
 	render() {
 		const { optiBoxes, unoptiBoxes, formattedOptiBoxes, formattedUnoptiBoxes } = this.state;
 
 		return (
 			<Fragment>
-				<Input label="Objets" onValidate={this.isInputValid} onSubmit={this.handleInputSubmit} />
+				<Input
+					label="Objets"
+					onValidate={MainPanel.isInputValid}
+					onSubmit={this.handleInputSubmit}
+				/>
 				{unoptiBoxes &&
 					unoptiBoxes.length > 0 && (
 						<Chart

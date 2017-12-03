@@ -1,10 +1,10 @@
 import React from "react";
-import Card from "./Card.js";
+import InfoPanel from "./InfoPanel.js";
 
-describe("Card", () => {
+describe("InfoPanel", () => {
 	it("should render correctly", () => {
 		// GIVEN: notre composant:
-		const tree = shallow(<Card Menu={<div>Menu</div>}> Content </Card>);
+		const tree = shallow(<InfoPanel />);
 		// THEN: il doit s'afficher correctement en matchant son snapshot:
 		expect(tree).toMatchSnapshot();
 	});

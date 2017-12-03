@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainPanel should render correctly 1`] = `
+<div>
+  <UNDEFINED>
+    <Input
+      label="Objets"
+      onSubmit={[Function]}
+      onValidate={[Function]}
+    />
+  </UNDEFINED>
+</div>
+`;

@@ -1,4 +1,4 @@
-import { compareAsc, flattenArray, isNumber } from "./utils.js";
+import { flattenArray, isNumber } from "./utils.js";
 
 /** Classe représentant le robot */
 class Packager {
@@ -20,10 +20,7 @@ class Packager {
 		// donner un caractère idempotent aux appels à resolve()
 		const { boxes: raw } = this.strategy();
 
-		return {
-			raw,
-			formatted: this.format(raw)
-		};
+		return { raw, formatted: flattenArray(raw) };
 	}
 
 	setInput(input) {
@@ -39,7 +36,7 @@ class Packager {
 	}
 
 	setStrategy(strategy) {
-		if (!this.input) {
+		if (!Array.isArray(this.input)) {
 			throw new Error(
 				"[xspeedit-core::setStrategy]: Vous devez effectuer une saisie avant de pouvoir affecter une stratégie"
 			);
@@ -50,12 +47,28 @@ class Packager {
 		return this;
 	}
 
-	format(boxes) {
-		return flattenArray(boxes);
+	get input() {
+		return this._input;
 	}
 
-	sort() {
-		return this.input.slice().sort(compareAsc);
+	get strategy() {
+		return this._strategy;
+	}
+
+	get capacity() {
+		return this._capacity;
+	}
+
+	set input(inp) {
+		this._input = inp;
+	}
+
+	set strategy(stra) {
+		this._strategy = stra;
+	}
+
+	set capacity(cap) {
+		this._capacity = cap;
 	}
 }
 

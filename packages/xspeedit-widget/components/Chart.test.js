@@ -1,10 +1,10 @@
 import React from "react";
-import Card from "./Card.js";
+import Chart from "./Chart.js";
 
-describe("Card", () => {
+describe("Chart", () => {
 	it("should render correctly", () => {
 		// GIVEN: notre composant:
-		const tree = shallow(<Card Menu={<div>Menu</div>}> Content </Card>);
+		const tree = shallow(<Chart title="Chart" data={[[1, 2], [3, 4]]} />);
 		// THEN: il doit s'afficher correctement en matchant son snapshot:
 		expect(tree).toMatchSnapshot();
 	});

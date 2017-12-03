@@ -34,10 +34,11 @@ class Input extends Component {
 		const name = e.target.name;
 
 		if (!name) {
-			return;
+			return false;
 		}
 
 		this.setState({ [name]: e.target.value });
+		return true;
 	};
 
 	render() {
