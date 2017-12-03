@@ -10,9 +10,9 @@
     "build": "next build",
     "start": "npm run build && next start",
     "export": "npm run build && next export",
-    "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build",
-	"deploy:styleguide": "npm run styleguide:build && cp -R ./static ./styleguide && surge --project ./styleguide --domain xspeedit-styleguide.surge.sh",
+    "styleguide:serve": "styleguidist server",
+    "styleguide": "styleguidist build",
+	"deploy:styleguide": "npm run styleguide && cp -R ./static ./styleguide && surge --project ./styleguide --domain xspeedit-styleguide.surge.sh",
 	"deploy:app": "npm run export && surge --project ./out --domain xspeedit.surge.sh",
 	"deploy": "npm run deploy:app && npm run deploy:styleguide"
   },

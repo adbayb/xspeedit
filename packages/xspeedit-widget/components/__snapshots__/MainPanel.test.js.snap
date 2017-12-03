@@ -1,13 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MainPanel should render correctly 1`] = `
-<div>
-  <UNDEFINED>
-    <Input
-      label="Objets"
+<MainPanel>
+  <Input
+    label="Objets"
+    onSubmit={[Function]}
+    onValidate={[Function]}
+  >
+    <form
+      className="jsx-1613173832"
       onSubmit={[Function]}
-      onValidate={[Function]}
+    >
+      <label
+        className="jsx-1613173832"
+        htmlFor="boxesInput"
+      >
+        Objets
+      </label>
+      <input
+        className="jsx-1613173832"
+        id="boxesInput"
+        name="input"
+        onChange={[Function]}
+        placeholder="Saisissez vos objets"
+        type="number"
+        value=""
+      />
+      <button
+        className="jsx-1613173832"
+        disabled={true}
+        type="submit"
+      >
+        <Icon
+          className="button"
+          height={24}
+          name="enter"
+          width={24}
+        >
+          <img
+            alt="icon-enter"
+            className="button"
+            height={24}
+            src="/static/enter.svg"
+            width={24}
+          />
+        </Icon>
+      </button>
+      <JSXStyle
+        css="form.jsx-1613173832{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:none;-ms-flex:none;flex:none;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;background-color:#6c727f;}input.jsx-1613173832{width:calc(100% - 50px);font-size:0.9rem;margin:0 0.5rem;-webkit-appearance:none;-moz-appearance:textfield;-webkit-appearance:none;-moz-appearance:none;appearance:none;outline:none;border:0;background-color:transparent;color:white;}input.jsx-1613173832::-webkit-input-placeholder{color:currentColor;}input.jsx-1613173832::-moz-placeholder{color:currentColor;}input.jsx-1613173832:-ms-input-placeholder{color:currentColor;}input.jsx-1613173832::placeholder{color:currentColor;}button.jsx-1613173832{padding:0 20px;background:none;border:none;border-radius:0;}button.jsx-1613173832:not([disabled]){background-color:#34b7b6;}label.jsx-1613173832{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;background-color:#565b68;margin:0;padding:1rem;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}"
+        styleId="1613173832"
+      />
+    </form>
+  </Input>
+  <section
+    className="jsx-4012226680"
+  >
+    <Icon
+      height={100}
+      name="chevrons-up"
+      width={100}
+    >
+      <img
+        alt="icon-chevrons-up"
+        height={100}
+        src="/static/chevrons-up.svg"
+        width={100}
+      />
+    </Icon>
+    <JSXStyle
+      css="section.jsx-4012226680{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}section.jsx-4012226680 img{-webkit-animation-duration:0.75s;animation-duration:0.75s;-webkit-animation-name:slideup-jsx-4012226680;animation-name:slideup-jsx-4012226680;-webkit-animation-direction:alternate;animation-direction:alternate;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;}@-webkit-keyframes slideup-jsx-4012226680{from{-webkit-transform:translate3d(0,100px,0);-ms-transform:translate3d(0,100px,0);transform:translate3d(0,100px,0);}to{-webkit-transform:translate3d(0,50px,0);-ms-transform:translate3d(0,50px,0);transform:translate3d(0,50px,0);}}@keyframes slideup-jsx-4012226680{from{-webkit-transform:translate3d(0,100px,0);-ms-transform:translate3d(0,100px,0);transform:translate3d(0,100px,0);}to{-webkit-transform:translate3d(0,50px,0);-ms-transform:translate3d(0,50px,0);transform:translate3d(0,50px,0);}}"
+      styleId="4012226680"
     />
-  </UNDEFINED>
-</div>
+  </section>
+</MainPanel>
 `;

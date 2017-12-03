@@ -1,5 +1,4 @@
 module.exports = {
-	assetsDir: "./static/",
 	components: "components/**/[A-Z]*.js",
 	defaultExample: true,
 	webpackConfig: {

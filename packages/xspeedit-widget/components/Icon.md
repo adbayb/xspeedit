@@ -1,4 +1,4 @@
-React component example:
+**Preview:**
 
 ```js
 <div>
@@ -9,20 +9,14 @@ React component example:
 </div>;
 ```
 
-You can add a custom props to an example wrapper:
-
-```js { "props": { "className": "checks" } }
-<Icon name="info" />;
-```
-
-Or disable an editor by passing a `noeditor` modifier:
-
-```jsx noeditor
-<Icon name="main" />;
-```
-
-To render an example as highlighted source code add a `static` modifier:
+**Example:**
 
 ```jsx static
-import React from 'react';
+import React from "react";
+
+const Example = () => {
+	return (
+		<Icon name="enter" />
+	);
+};
 ```

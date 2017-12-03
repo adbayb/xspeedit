@@ -2,7 +2,6 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
       # carbon est le nom de code pour la dernière version lts de node.js (ie. 8.9.1):
       - image: circleci/node:carbon
 

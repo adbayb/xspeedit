@@ -1,7 +1,9 @@
 **Preview:**
 
 ```js
-<Chart title="chart" data={[[1, 2], [3, 4]]} />;
+<div style={{ backgroundColor: "black", height: 400 }}>
+	<MainPanel />
+</div>;
 ```
 
 **Example:**
@@ -11,7 +13,7 @@ import React from "react";
 
 const Example = () => {
 	return (
-		<Chart title="chart" data={[[1, 2], [3, 4]]} />
+		<MainPanel />
 	);
 };
 ```

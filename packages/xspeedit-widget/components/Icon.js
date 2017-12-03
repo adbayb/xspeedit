@@ -14,7 +14,7 @@ const Icon = ({ name, width, height, className }) => {
 };
 
 Icon.propTypes = {
-	name: PropTypes.oneOf(["github", "info", "main", "twitter", "enter"]).isRequired,
+	name: PropTypes.oneOf(["github", "info", "main", "twitter", "enter", "chevrons-up"]).isRequired,
 	width: PropTypes.number,
 	height: PropTypes.number,
 	className: PropTypes.string
