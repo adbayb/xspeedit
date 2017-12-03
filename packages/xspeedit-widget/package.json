@@ -10,9 +10,11 @@
     "build": "next build",
     "start": "npm run build && next start",
     "export": "npm run build && next export",
-    "deploy": "npm run export && npm run styleguide:build",
     "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build && cp -R ./static ./styleguide"
+    "styleguide:build": "styleguidist build",
+	"deploy:styleguide": "npm run styleguide:build && cp -R ./static ./styleguide && surge --project ./styleguide --domain xspeedit-styleguide.surge.sh",
+	"deploy:app": "npm run export && surge --project ./out --domain xspeedit.surge.sh",
+	"deploy": "npm run deploy:app && npm run deploy:styleguide"
   },
   "author": "Ayoub Adib <adbayb@gmail.com>",
   "license": "MIT",
@@ -25,11 +27,12 @@
     "xspeedit-core": "../xspeedit-core"
   },
   "devDependencies": {
-    "babel-preset-react": "^6.24.1",
+    "babel-preset-react": "6.24.1",
     "enzyme": "3.2.0",
     "enzyme-adapter-react-16": "1.1.0",
     "enzyme-to-json": "3.2.2",
     "prop-types": "15.6.0",
-    "rimraf": "^2.6.2"
+    "rimraf": "2.6.2",
+    "surge": "0.19.0"
   }
 }

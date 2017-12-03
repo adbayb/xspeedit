@@ -8,6 +8,7 @@ jobs:
 
     # Steps décrit notre pipeline CI:
     steps:
+      # Continuous Integration steps:
       # Récupération du code (git checkout) depuis le repo distant:
       - checkout
 
@@ -17,7 +18,7 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-
+    
       - run:
           name: Nodejs Version
           command: node --version
@@ -33,6 +34,14 @@ jobs:
       - run:
           name: Test coverage
           command: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+      
+      # Continuous Deployment step:
+      - deploy:
+          command: |
+            toto="~/"
+            ls ~/
+            cd "$CIRCLE_WORKING_DIRECTORY/packages/xspeedit-core" && npm run deploy
+            cd "$CIRCLE_WORKING_DIRECTORY/packages/xspeedit-widget" && npm run deploy
 
       - save_cache:
           name: Save node_modules cache

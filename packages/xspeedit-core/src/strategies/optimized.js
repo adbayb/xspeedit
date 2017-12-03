@@ -1,7 +1,7 @@
 import { compareAsc, sumReducer } from "../utils.js";
 
 /**
- * Fonction définissant la stratégie algorithmique optimisée d'empaquettage des articles dans les cartons
+ * Fonction définissant l'algorithme optimisé d'empaquettage des articles dans les cartons
  * @function
  * @name optimizedStrategy
  * @param {Packager}	packager - Une instance Packager (dependency injection)

@@ -1,7 +1,7 @@
 import { sumReducer } from "../utils.js";
 
 /**
- * Fonction définissant la stratégie algorithmique non optimisée d'empaquettage des articles dans les cartons
+ * Fonction définissant l'algorithme non optimisé d'empaquettage des articles dans les cartons
  * @function
  * @name unoptimizedStrategy
  * @param {Packager}	packager - Une instance Packager (dependency injection)
