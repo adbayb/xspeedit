@@ -37,11 +37,11 @@ jobs:
       
       # Continuous Deployment step:
       - deploy:
+          name: Deploy
           command: |
-            toto="~/"
-            ls ~/
-            cd "$CIRCLE_WORKING_DIRECTORY/packages/xspeedit-core" && npm run deploy
-            cd "$CIRCLE_WORKING_DIRECTORY/packages/xspeedit-widget" && npm run deploy
+            # eval since tild expansion not working in bash (bash couldn't substitute ~ to the home dir):
+            eval cd "$CIRCLE_WORKING_DIRECTORY/packages/xspeedit-core" && npm run deploy
+            eval cd "$CIRCLE_WORKING_DIRECTORY/packages/xspeedit-widget" && npm run deploy
 
       - save_cache:
           name: Save node_modules cache
