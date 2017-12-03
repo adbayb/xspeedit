@@ -22,10 +22,10 @@ class Example extends React.Component {
 		return (
 			<div style={{ display: "flex", position: "relative", backgroundColor: "black", height: 200 }}>
 				<ContentSwitcher isActive={view}>
-					<div style={{ position: "relative", backgroundColor: "lightblue", flex: 1 }} />
+					<div style={{ backgroundColor: "lightblue", flex: 1 }} />
 				</ContentSwitcher>
 				<ContentSwitcher isActive={!view}>
-					<div style={{ position: "relative", backgroundColor: "red", flex: 1 }} />
+					<div style={{ backgroundColor: "red", flex: 1 }} />
 				</ContentSwitcher>
 				<button style={{ position: "absolute" }} onClick={this.handleClick}>
 					Switch
