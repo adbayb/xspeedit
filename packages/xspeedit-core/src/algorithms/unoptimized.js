@@ -1,15 +1,16 @@
-import { sumReducer } from "../utils.js";
+import Box from "../box";
 
 /**
  * Fonction définissant l'algorithme non optimisé d'empaquettage des articles dans les cartons
  * @function
- * @name unoptimizedStrategy
- * @param {Packager}	packager - Une instance Packager (dependency injection)
- * @return {Function}	Le callback à appeller pour lancer la résolution
+ * @name unoptimizedAlgorithm
+ * @param {Array} 		articles La valeur de la propriété input décrivant les articles suivant leur poids
+ * @param {number} 		capacity La contenance maximale d'une boîte
+ * @return {Function}			 Le callback à appeller pour lancer la résolution
  */
-export default packager => {
+export default (articles, capacity) => {
 	/**
-	 * Algorithme unoptmizedStrategy
+	 * Algorithme unoptmizedAlgorithm
 	 * Variables
 	 * 	capacity: entier; // capacité maximale d'une boîte
 	 * 	input: tableau; // tableau contenant l'ensemble des chiffres saisis par l'utilisateur
@@ -29,25 +30,22 @@ export default packager => {
 	 * 	Retourne boxes
 	 * Fin
 	 */
-	const PACKAGER_CAPACITY = packager.capacity;
 
 	return () => {
-		const articles = packager.input;
-		const boxes = [];
-		let boxIndex = 0;
+		// @note: contient la liste des cartons générés:
+		let boxes = [];
 
+		// @note: création de notre premier carton vide:
+		let box = new Box(capacity);
 		articles.forEach(article => {
-			let box = boxes[boxIndex] || [];
-			const boxSize = box.reduce(...sumReducer(article));
-
-			if (boxSize > PACKAGER_CAPACITY) {
-				// @note: créé un nouveau carton:
-				boxIndex++;
-				boxes[boxIndex] = [article];
-			} else {
-				boxes[boxIndex] = [...box, article];
+			// @note: le carton en cours ne peut plus ajouter d'article
+			if (!box.add(article)) {
+				boxes = [...boxes, box.articles];
+				box = new Box(capacity, article);
 			}
 		});
+		// @note: nous ajoutons le dernier carton généré restant non remplit s'il existe:
+		boxes = [...boxes, box.articles.length > 0 ? box.articles : []];
 
 		return { boxes };
 	};

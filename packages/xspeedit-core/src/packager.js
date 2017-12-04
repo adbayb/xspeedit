@@ -4,13 +4,15 @@ import { flattenArray, isNumber } from "./utils.js";
 class Packager {
 	/**
 	 * Créé un packager
-	 * @param {number} capacity - La capacité maximale d'une boîte
+	 * @param {number} capacity	La capacité maximale d'une boîte
 	 */
 	constructor(capacity = 10) {
 		/** @private */
+		this._capacity = capacity;
+		/** @private */
 		this._input = null;
 		/** @private */
-		this._capacity = capacity;
+		this._strategy = null;
 	}
 
 	/**
@@ -98,7 +100,7 @@ class Packager {
 			);
 		}
 
-		this._strategy = stra(this);
+		this._strategy = stra(this.input, this.capacity);
 	}
 
 	/**

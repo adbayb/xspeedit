@@ -1,4 +1,4 @@
 import Packager from "./packager.js";
 
-export * from "./strategies";
+export * from "./algorithms";
 export default Packager;
