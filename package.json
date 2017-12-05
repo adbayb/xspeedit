@@ -7,8 +7,9 @@
     "install:widget": "cd packages/xspeedit-widget && npm install",
     "install:node": "cd packages/xspeedit-node && npm install",
     "start:widget": "cd packages/xspeedit-widget && npm start",
+    "start:node": "cd packages/xspeedit-node && npm start",
     "test:update": "jest --updateSnapshot",
-    "test:watch": "jest -- --watch",
+    "test:watch": "jest --watch",
     "test": "jest",
     "format": "prettier --write **/*.{js,jsx,json,css}",
     "lint": "eslint ."
@@ -18,6 +19,8 @@
   "devDependencies": {
     "babel-eslint": "8.0.3",
     "babel-jest": "21.2.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "coveralls": "3.0.0",
     "cz-conventional-changelog": "2.1.0",
     "eslint": "4.12.1",

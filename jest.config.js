@@ -1,4 +1,6 @@
 module.exports = {
+	verbose: true,
+
 	projects: ["packages/xspeedit-core", "packages/xspeedit-widget", "packages/xspeedit-node"],
 
 	// @note: coverage configurations:

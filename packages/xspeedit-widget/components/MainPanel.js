@@ -7,7 +7,7 @@ import Icon from "../components/Icon";
 
 class MainPanel extends Component {
 	static isInputValid = input => {
-		return input && input.length > 0 && /^\d+$/.test(input);
+		return input && input.length > 0 && /^[1-9]+$/.test(input);
 	};
 
 	state = {

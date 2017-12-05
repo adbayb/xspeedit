@@ -1,14 +1,14 @@
-import { flattenArray, isNumber } from "./utils.js";
+import { flattenArray, isValidNumber } from "./utils.js";
 
 describe("Utils", () => {
-	describe("isNumber", () => {
+	describe("isValidNumber", () => {
 		it("should check correctly", () => {
 			// GIVEN: deux chaines de caractères:
 			const valid = "122234";
 			const invalid = "12/b5";
 			// WHEN: nous exécutons notre fonction utilitaire:
-			const retValid = isNumber(valid);
-			const retInvalid = isNumber(invalid);
+			const retValid = isValidNumber(valid);
+			const retInvalid = isValidNumber(invalid);
 			// THEN: nous vérifions qu'ils retournent bien que des nombres ou non:
 			expect(retValid).toBe(true);
 			expect(retInvalid).toBe(false);

@@ -1,4 +1,4 @@
-import { flattenArray, isNumber } from "./utils.js";
+import { flattenArray, isValidNumber } from "./utils.js";
 
 /** Classe représentant le robot empaqueteur (i.e. implémentant la logique de packaging) */
 class Packager {
@@ -76,13 +76,15 @@ class Packager {
 
 	/**
 	 * Setter: Assigne une entrée utilisateur et la transforme en un format compréhensible par Packager (string -> array)
-	 * @param {string} inp - L'entrée utilisateur (chaîne de caractère)
+	 * @param {string} inp - L'entrée utilisateur (nombre avec des tailles comprises entre 1 et 9)
 	 * @throws 		   Erreur si l'input utilisateur ne contient pas uniquement des chiffres
 	 */
 	set input(inp) {
 		// @note: validation de l'input utilisateur (tout en permettant d'éviter les XSS):
-		if (typeof inp !== "string" || !isNumber(inp)) {
-			throw new Error("[xspeedit-core::setInput]: Saisie invalide: vous devez saisir un nombre");
+		if (typeof inp !== "string" || !isValidNumber(inp)) {
+			throw new Error(
+				"[xspeedit-core::setInput]: Saisie invalide: vous devez saisir un nombre constitué de chiffre compris entre 1 et 9 (chaîne de caractère et 0 non tolérés"
+			);
 		}
 
 		this._input = Array.from(inp.toString()).map(Number);

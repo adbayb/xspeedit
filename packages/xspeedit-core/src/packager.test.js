@@ -15,11 +15,11 @@ describe("Packager", () => {
 
 	it("should set input correctly", () => {
 		// GIVEN: un input respectant les contraintes:
-		const input = "01234";
+		const input = "1234";
 		// WHEN: nous affectons l'input:
 		packager.setInput(input);
 		// THEN: la propriété input doit être affecté correctement:
-		expect(packager.input).toEqual([0, 1, 2, 3, 4]);
+		expect(packager.input).toEqual([1, 2, 3, 4]);
 	});
 
 	it("should not set input when it doesn't match constraints", () => {
@@ -36,7 +36,7 @@ describe("Packager", () => {
 		const expectedOutput = () => {};
 		const algorithm = () => expectedOutput;
 		// WHEN: nous affectons la algorithm:
-		packager.setInput("01234");
+		packager.setInput("1234");
 		packager.setStrategy(algorithm);
 		// THEN: la propriété algorithm doit être affecté correctement:
 		expect(packager.algorithm).toBe(expectedOutput);
@@ -58,7 +58,7 @@ describe("Packager", () => {
 		// GIVEN: une strategie ne respectant pas les contraintes sur sa signature de fonction:
 		const algorithm = "toto";
 		// WHEN: nous affectons la algorithm:
-		packager.setInput("01234");
+		packager.setInput("1234");
 		const thrower = () => packager.setStrategy(algorithm);
 		// THEN: une erreur doit être capturée:
 		expect(thrower).toThrowError(/is not a function/);

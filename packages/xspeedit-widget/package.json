@@ -4,11 +4,13 @@
   "version": "0.1.0",
   "description": "Application web consommant la librarie xspeedit",
   "scripts": {
+    "prestart": "npm run build",
+    "preexport": "npm run build",
     "prebuild": "npm run clean",
     "clean": "rimraf ./dist ./out",
     "dev": "next",
     "build": "next build",
-    "start": "npm run build && next start",
+    "start": "next start",
     "export": "npm run build && next export",
     "styleguide:serve": "styleguidist server",
     "styleguide": "styleguidist build",
@@ -27,7 +29,6 @@
     "xspeedit-core": "../xspeedit-core"
   },
   "devDependencies": {
-    "babel-preset-es2015": "6.24.1",
     "babel-preset-react": "6.24.1",
     "enzyme": "3.2.0",
     "enzyme-adapter-react-16": "1.1.0",

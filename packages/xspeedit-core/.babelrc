@@ -1,19 +1,7 @@
 {
 	"env": {
 		"test": {
-			"presets": [
-				[
-					"env",
-					{
-						"debug": false,
-						"modules": "commonjs",
-						"targets": {
-							"node": "current"
-						},
-						"useBuiltIns": true
-					}
-				]
-			]
+			"presets": [["env", { "modules": "commonjs" }]]
 		},
 		"node": {
 			"presets": [
@@ -29,10 +17,13 @@
 		"browser": {
 			"presets": [
 				[
-					"es2015"
+					"env",
+					{
+						"modules": false,
+						"targets": { "browsers": ["last 2 versions", "safari >= 7"] }
+					}
 				]
 			]
 		}
-	},
-	"presets": ["stage-2"]
+	}
 }

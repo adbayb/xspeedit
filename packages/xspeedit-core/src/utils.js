@@ -7,9 +7,9 @@
  * Fonction permettant de vérifier si une chaîne de caractère contient uniquement des chiffres
  * @function
  * @param {string}		str - La chaîne de caractère à vérifier
- * @return {boolean}	true si la chaîne de caractère contient uniquement des chiffres / false autrement
+ * @return {boolean}	true si la chaîne de caractère contient uniquement des chiffres compris entre 1 et 9 / false autrement
  */
-export const isNumber = str => /^\d+$/.test(str);
+export const isValidNumber = str => /^[1-9]+$/.test(str);
 
 /**
  * Fonction permettant d'aplatir un tableau à deux dimensions
