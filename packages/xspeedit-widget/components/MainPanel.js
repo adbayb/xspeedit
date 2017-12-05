@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import Packager, { optimizedStrategy, unoptimizedStrategy } from "xspeedit-core";
+import Packager, { optimizedAlgorithm, unoptimizedAlgorithm } from "xspeedit-core";
 
 import Chart from "../components/Chart";
 import Input from "../components/Input";
@@ -22,10 +22,10 @@ class MainPanel extends Component {
 		this.packager.setInput(input);
 
 		const { raw: optiBoxes, formatted: formattedOptiBoxes } = this.packager
-			.setStrategy(optimizedStrategy)
+			.setStrategy(optimizedAlgorithm)
 			.resolve();
 		const { raw: unoptiBoxes, formatted: formattedUnoptiBoxes } = this.packager
-			.setStrategy(unoptimizedStrategy)
+			.setStrategy(unoptimizedAlgorithm)
 			.resolve();
 
 		this.setState(() => ({ optiBoxes, unoptiBoxes, formattedOptiBoxes, formattedUnoptiBoxes }));

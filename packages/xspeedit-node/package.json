@@ -6,8 +6,8 @@
   "main": "dist/app.js",
   "module": "src/index.js",
   "scripts": {
-	"prebuild": "rimraf ./dist",
-	"build": "rollup --config",
+    "prebuild": "rimraf ./dist",
+    "build": "rollup --config",
     "start": "node ./dist/app.js"
   },
   "author": "Ayoub Adib <adbayb@gmail.com>",
@@ -16,7 +16,7 @@
     "xspeedit-core": "../xspeedit-core"
   },
   "devDependencies": {
-	"babel-cli": "6.26.0",
+    "babel-cli": "6.26.0",
     "babel-plugin-external-helpers": "6.22.0",
     "babel-preset-env": "1.6.1",
     "babel-preset-stage-2": "6.24.1",

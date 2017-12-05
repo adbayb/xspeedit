@@ -12,7 +12,7 @@ class Packager {
 		/** @private */
 		this._input = null;
 		/** @private */
-		this._strategy = null;
+		this._algorithm = null;
 	}
 
 	/**
@@ -22,7 +22,7 @@ class Packager {
 	resolve() {
 		// @note: la signature des strategies a été faite en sorte à
 		// donner un caractère idempotent aux appels à resolve()
-		const { boxes: raw } = this.strategy();
+		const { boxes: raw } = this.algorithm();
 
 		return { raw, formatted: flattenArray(raw) };
 	}
@@ -41,11 +41,11 @@ class Packager {
 
 	/**
 	 * Affecte un algorithme à l'instance Packager
-	 * @param  {Function} strategy Le Factory strategy décrivant l'algorithme de résolution du problème
-	 * @return {Packager}          L'instance Packager (permettant le cascade design pattern)
+	 * @param  {Function} algorithm Le Factory algorithm() décrivant l'algorithme de résolution du problème
+	 * @return {Packager}          	L'instance Packager (permettant le cascade design pattern)
 	 */
-	setStrategy(strategy) {
-		this.strategy = strategy;
+	setStrategy(algorithm) {
+		this.algorithm = algorithm;
 
 		return this;
 	}
@@ -59,11 +59,11 @@ class Packager {
 	}
 
 	/**
-	 * Getter: Récupère la valeur de la propriété strategy (fonction décrivant l'algorithme de résolution)
-	 * @return {Function} La valeur de la propriété strategy
+	 * Getter: Récupère la valeur de la propriété algorithm (fonction décrivant l'algorithme de résolution)
+	 * @return {Function} La valeur de la propriété algorithm
 	 */
-	get strategy() {
-		return this._strategy;
+	get algorithm() {
+		return this._algorithm;
 	}
 
 	/**
@@ -89,18 +89,18 @@ class Packager {
 	}
 
 	/**
-	 * Setter: Assigne un algorithme à la propriété strategy
-	 * @param  {Function} strategy Le Factory strategy décrivant l'algorithme de résolution du problème
+	 * Setter: Assigne un algorithme à la propriété algorithm
+	 * @param  {Function} algorithm Le Factory algorithm décrivant l'algorithme de résolution du problème
 	 * @throws 			  Erreur si l'input n'a pas encore été défini
 	 */
-	set strategy(stra) {
+	set algorithm(algo) {
 		if (!Array.isArray(this.input)) {
 			throw new Error(
 				"[xspeedit-core::setStrategy]: Vous devez effectuer une saisie avant de pouvoir affecter une stratégie"
 			);
 		}
 
-		this._strategy = stra(this.input, this.capacity);
+		this._algorithm = algo({ articles: this.input, capacity: this.capacity });
 	}
 
 	/**

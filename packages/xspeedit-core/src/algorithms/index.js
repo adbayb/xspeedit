@@ -1,2 +1,2 @@
-export { default as optimizedStrategy } from "./optimized.js";
-export { default as unoptimizedStrategy } from "./unoptimized.js";
+export { default as optimizedAlgorithm } from "./optimized.js";
+export { default as unoptimizedAlgorithm } from "./unoptimized.js";

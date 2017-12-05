@@ -16,7 +16,7 @@ class Box {
 	}
 
 	add(article) {
-		if (Number.isNaN(article)) return false;
+		if (!Number.isInteger(article)) return false;
 
 		const candidateSize = this.size + article;
 		if (candidateSize > this.capacity) return false;

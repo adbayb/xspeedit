@@ -1,4 +1,4 @@
-import { compareAsc, flattenArray, isNumber, sumReducer } from "./utils.js";
+import { flattenArray, isNumber } from "./utils.js";
 
 describe("Utils", () => {
 	describe("isNumber", () => {
@@ -12,53 +12,6 @@ describe("Utils", () => {
 			// THEN: nous vérifions qu'ils retournent bien que des nombres ou non:
 			expect(retValid).toBe(true);
 			expect(retInvalid).toBe(false);
-		});
-	});
-
-	describe("sumReducer", () => {
-		it("should sum correctly", () => {
-			// GIVEN: deux chaines de caractères:
-			const initSize = 0;
-			const operandA = 5;
-			const operandB = 4;
-			// WHEN: nous exécutons notre fonction utilitaire:
-			const retReducer = sumReducer(initSize);
-			// THEN: nous vérifions le retour de fonction ainsi que la somme:
-			expect(retReducer).toBeInstanceOf(Array);
-			expect(retReducer[1]).toEqual(0);
-			expect(retReducer[0](operandA, operandB)).toEqual(9);
-		});
-	});
-
-	describe("compareAsc", () => {
-		it("should return -1 when a > b", () => {
-			// GIVEN: deux entrées dummy a et b:
-			const a = 2;
-			const b = 1;
-			// WHEN: nous exécutons notre fonction utilitaire:
-			const ret = compareAsc(a, b);
-			// THEN: nous remplissons notre cas de test:
-			expect(ret).toBe(-1);
-		});
-
-		it("should return 1 when a < b", () => {
-			// GIVEN: deux entrées dummy a et b:
-			const a = 1;
-			const b = 2;
-			// WHEN: nous exécutons notre fonction utilitaire:
-			const ret = compareAsc(a, b);
-			// THEN: nous remplissons notre cas de test:
-			expect(ret).toBe(1);
-		});
-
-		it("should return 0 when a = b", () => {
-			// GIVEN: deux entrées dummy a et b:
-			const a = 1;
-			const b = 1;
-			// WHEN: nous exécutons notre fonction utilitaire:
-			const ret = compareAsc(a, b);
-			// THEN: nous remplissons notre cas de test:
-			expect(ret).toBe(0);
 		});
 	});
 

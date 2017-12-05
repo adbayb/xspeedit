@@ -31,45 +31,45 @@ describe("Packager", () => {
 		expect(thrower).toThrowError(/Saisie invalide: vous devez saisir un nombre/);
 	});
 
-	it("should set strategy correctly", () => {
+	it("should set algorithm correctly", () => {
 		// GIVEN: une strategie respectant les contraintes sur sa signature de fonction:
 		const expectedOutput = () => {};
-		const strategy = () => expectedOutput;
-		// WHEN: nous affectons la strategy:
+		const algorithm = () => expectedOutput;
+		// WHEN: nous affectons la algorithm:
 		packager.setInput("01234");
-		packager.setStrategy(strategy);
-		// THEN: la propriété strategy doit être affecté correctement:
-		expect(packager.strategy).toBe(expectedOutput);
+		packager.setStrategy(algorithm);
+		// THEN: la propriété algorithm doit être affecté correctement:
+		expect(packager.algorithm).toBe(expectedOutput);
 	});
 
-	it("should not set strategy when input is not valid", () => {
+	it("should not set algorithm when input is not valid", () => {
 		// GIVEN: une strategie respectant les contraintes sur sa signature de fonction:
 		const expectedOutput = () => {};
-		const strategy = () => expectedOutput;
-		// WHEN: nous affectons la strategy sans avoir affecté d'input (eg. null):
-		const thrower = () => packager.setStrategy(strategy);
+		const algorithm = () => expectedOutput;
+		// WHEN: nous affectons la algorithm sans avoir affecté d'input (eg. null):
+		const thrower = () => packager.setStrategy(algorithm);
 		// THEN: une erreur doit être capturée:
 		expect(thrower).toThrowError(
 			/Vous devez effectuer une saisie avant de pouvoir affecter une stratégie/
 		);
 	});
 
-	it("should not set strategy when it doesn't match function signature", () => {
+	it("should not set algorithm when it doesn't match function signature", () => {
 		// GIVEN: une strategie ne respectant pas les contraintes sur sa signature de fonction:
-		const strategy = "toto";
-		// WHEN: nous affectons la strategy:
+		const algorithm = "toto";
+		// WHEN: nous affectons la algorithm:
 		packager.setInput("01234");
-		const thrower = () => packager.setStrategy(strategy);
+		const thrower = () => packager.setStrategy(algorithm);
 		// THEN: une erreur doit être capturée:
 		expect(thrower).toThrowError(/is not a function/);
 	});
 
 	it("should resolve correctly", () => {
 		// GIVEN: une strategie ne respectant pas les contraintes sur sa signature de fonction:
-		const strategy = () => () => ({ boxes: [[1, 2], [3, 4]] });
-		// WHEN: nous affectons la strategy:
+		const algorithm = () => () => ({ boxes: [[1, 2], [3, 4]] });
+		// WHEN: nous affectons la algorithm:
 		packager.setInput("1234");
-		packager.setStrategy(strategy);
+		packager.setStrategy(algorithm);
 		// THEN: une erreur doit être capturée:
 		expect(packager.resolve()).toEqual({ raw: [[1, 2], [3, 4]], formatted: "12/34" });
 	});

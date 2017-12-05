@@ -1,83 +1,103 @@
 import Box from "../box";
 
-export class Tree {
-	constructor(capacity) {
-		this.capacityPerNode = capacity;
-	}
-
-	createRootNode(article) {
-		this.current = new Box(this.capacityPerNode, article);
-		this.best = this.current;
-	}
-
-	check(candidate, ...subdomain) {
-		// @note: heuristique si taille === 10 <=> on ne peut pas trouver de meilleur candidat:
-		if (this.best.size === this.best.capacity || subdomain.length === 0) {
-			return this.best.articles;
-		}
-
-		const isAdded = this.current.add(subdomain[0]);
-
-		if (isAdded && this.current.size > this.best.size) {
-			this.best = this.current;
-			this.current = new Box(this.capacityPerNode, candidate);
-		}
-
-		return this.check(...subdomain);
-	}
-}
-
 /**
  * Fonction définissant l'algorithme optimisé d'empaquettage des articles dans les cartons
  * @function
  * @name optimizedAlgorithm
- * @param {Array} 		articles La valeur de la propriété input décrivant les articles suivant leur poids
- * @param {number} 		capacity La contenance maximale d'une boîte
+ * @param {Object} 		data : { articles: La valeur de la propriété input décrivant les articles suivant leur poids, capacity: La contenance maximale d'une boîte }
  * @return {Function}	Le callback à appeller pour lancer la résolution
  */
-export default (articles, capacity) => {
+export default ({ articles, capacity }) => {
 	/**
 	 * Algorithme optmizedAlgorithm
 	 * Variables
 	 * 	capacity: entier; // capacité maximale d'une boîte
-	 * 	input: tableau; // tableau contenant l'ensemble des chiffres saisis par l'utilisateur
-	 * 	boxes: tableau; // tableau vide qui contiendra l'ensemble des cartons
+	 * 	articles: Array; // tableau contenant l'ensemble des articles saisis par l'utilisateur
+	 * 	boxes: Array; // tableau vide qui contiendra la solution représentant l'ensemble des cartons générés
+	 * 	currentNode: Box; // dummy carton permettant la prise de décision
+	 * 	bestNode: Box; // carton stockant la meilleur combinaison d'article
+	 * 	sousDomaine: Array; // tableau vide qui contiendra le sous-ensemble de recherche
 	 * Début
-	 * 	articles <- input.sort(); // On trie les chiffres de manière décroissante
+	 * 	Pour articles allant de i=0 à articles.length
+	 * 		article <- articles[i]; // On extrait l'article en cours
+	 * 		currentNode <- CréerNoeud(article); // On créé notre dummy node en lui affecter l'article en cours
+	 * 		bestNode <- currentNode; // Le meilleur noeud correspond au départ au currentNode
+	 * 		sousDomaine <- ExtractSousDomaine(); On récupère notre sous-domaine de recherche (correspond aux articles restants sans l'article en cours).
 	 *
-	 * 	Pour articles allant de 0 à candidateArticles.length
-	 * 		[article, ...candidateArticles] <- articles; // On extrait la première entrée comme candidat valide et récupérons les autres articles dans le tableau candidateArticles;
-	 * 		box <- Créer(article); // On créé un nouveau carton en lui affectant l'article en cours
-	 * 		validCandidateArticles <- filter(candidateArticles); // On cherche les articles pouvant entrer dans le carton suivant sa capacité
-	 * 		box <- validCandidateArticles; // On ajoute les candidats valides dans le carton en cours
-	 * 		articles <- Retirer(validCandidateArticles);
-	 * 		boxes <- Ajouter(box);
+	 * 		Tantque Existe(sousDomaine)
+	 *			Si bestNode.occupation === capacity Alors // Il ne peut y avoir de meilleure solution, on retourne la solution
+	 *					Retourne bestNode;
+	 *			Fin si
+	 *
+	 *			Si currentNode.occupation > bestNode.occupation Alors
+	 *				bestNode <- currentNode; // Une meilleure solution est trouvée: on met à jour bestNode en le permuttant avec currentNode
+	 *			Fin si
+	 *
+	 *			currentNode <- Ajouter(article);
+	 *
+	 *			Retourne sousDomaine <- ExtractSousDomaine();
+	 *		Fin Tantque
+	 *
+	 *		solution <- RécupérerArticles(bestNode);
+	 * 		boxes <- Ajouter(solution);  // On récupère la meilleur combinaison d'articles et l'ajoutons dans boxes
+	 * 		articles <- RetirerArticles(solution); // Nous retirons les articles solutionnés de notre ensemble d'articles
 	 *	Fin pour
+	 *
 	 * 	Retourne boxes
 	 * Fin
 	 */
+	let currentNode;
+	let bestNode;
+
+	const createNode = article => {
+		currentNode = new Box(capacity, article);
+		bestNode = currentNode;
+	};
+
+	const permuteNode = () => {
+		bestNode = currentNode;
+	};
+
+	const findSolution = (candidate, ...subdomain) => {
+		// @note: taille === 10 <=> on ne peut pas trouver de meilleur candidat
+		// (on retourne dans ce cas, le meilleur noeud candidat):
+		if (bestNode.size === capacity || subdomain.length === 0) {
+			return bestNode.articles;
+		}
+
+		if (currentNode.size > bestNode.size) {
+			permuteNode();
+		}
+
+		if (!currentNode.add(subdomain[0])) {
+			currentNode = new Box(capacity, candidate);
+		}
+
+		return findSolution(...subdomain);
+	};
 
 	return () => {
 		let boxes = [];
-		const tree = new Tree(capacity);
 
-		articles.reduce(accu => {
-			if (accu.length === 0) {
+		articles.reduce(remainingArticles => {
+			if (remainingArticles.length === 0) {
 				//@note: plus de candidats
 				return [];
 			}
 
-			const [candidateArticle, ...others] = accu;
-			tree.createRootNode(candidateArticle);
-			const best = tree.check(candidateArticle, ...others);
-			boxes = [...boxes, best];
+			const [candidateArticle, ...others] = remainingArticles;
 
-			best.forEach(entry => {
-				accu.splice(accu.indexOf(entry), 1);
+			createNode(candidateArticle);
+
+			const solution = findSolution(candidateArticle, ...others);
+			boxes = [...boxes, solution];
+
+			solution.forEach(entry => {
+				remainingArticles.splice(remainingArticles.indexOf(entry), 1);
 			});
 
-			// return sous-espaces restants:
-			return [...accu];
+			// @note: retourne les sous-espaces restants:
+			return [...remainingArticles];
 		}, articles);
 
 		return { boxes };

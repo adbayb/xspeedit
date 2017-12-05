@@ -7,7 +7,7 @@
 			"presets": "next/babel"
 		},
 		"test": {
-			"presets": [["env", { "modules": "commonjs" }], "react", "next/babel"]
+			"presets": ["es2015", "react", "next/babel"]
 		}
 	}
 }
