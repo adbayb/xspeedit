@@ -73,7 +73,6 @@ class Input extends Component {
 						-webkit-appearance: none;
 						-moz-appearance: textfield;
 						appearance: none;
-						outline: none;
 						border: 0;
 						background-color: transparent;
 						color: white;

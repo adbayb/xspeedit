@@ -1,11 +1,11 @@
 import Box from "../box";
 
 /**
- * Fonction définissant l'algorithme non optimisé d'empaquettage des articles dans les cartons
+ * Fonction définissant l'algorithme non optimisé d'empaquetage des articles dans les cartons
  * @function
  * @name unoptimizedAlgorithm
- * @param {Object} 		data : { articles: La valeur de la propriété input décrivant les articles suivant leur poids, capacity: La contenance maximale d'une boîte }
- * @return {Function}	Le callback à appeller pour lancer la résolution
+ * @param {Object} 		data { articles: La valeur de la propriété input décrivant les articles suivant leur taille, capacity: La contenance maximale d'une boîte }
+ * @return {Function}	Le callback permettant de lancer la résolution
  */
 export default ({ articles, capacity }) => {
 	/**

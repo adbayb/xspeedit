@@ -1,10 +1,10 @@
 import { flattenArray, isNumber } from "./utils.js";
 
-/** Classe centrale implémentant la logique de packaging */
+/** Classe représentant le robot empaqueteur (i.e. implémentant la logique de packaging) */
 class Packager {
 	/**
-	 * Créé un packager
-	 * @param {number} capacity	La capacité maximale d'une boîte
+	 * Créé un robot empaqueteur
+	 * @param {number} capacity	La capacité maximale des cartons
 	 */
 	constructor(capacity = 10) {
 		/** @private */
@@ -16,8 +16,8 @@ class Packager {
 	}
 
 	/**
-	 * Résoud la problématique de packaging suivant une stratégie et un input donnés
-	 * @return {{raw:Array, formatted:string}} La représentation de la résolution sous forme d'un objet du type {raw, formatted}: raw (du type [[1,2], [3,4]]) et formatted (du type "12/34")
+	 * Résoud la problématique d'empaquetage suivant une stratégie et un input donnés
+	 * @return {{raw:Array, formatted:string}} La représentation de la résolution sous forme d'un objet {raw, formatted}. raw (du type [[1,2], [3,4]]) et formatted (du type "12/34")
 	 */
 	resolve() {
 		// @note: la signature des strategies a été faite en sorte à
@@ -29,7 +29,7 @@ class Packager {
 
 	/**
 	 * Affecte l'input utilisateur à l'instance Packager
-	 * @param  {string} input      L'entrée utilisateur représentant les objets à mettre dans les cartons (leur valeur décrivent leur poids)
+	 * @param  {string} input      L'entrée utilisateur représentant les objets à mettre dans les cartons (leur valeur décrit leur taille)
 	 * @return {Packager}          L'instance Packager (permettant le cascade design pattern)
 	 */
 	setInput(input) {
@@ -40,7 +40,7 @@ class Packager {
 	}
 
 	/**
-	 * Affecte un algorithme à l'instance Packager
+	 * Affecte un algorithme de résolution à l'instance Packager
 	 * @param  {Function} algorithm Le Factory algorithm() décrivant l'algorithme de résolution du problème
 	 * @return {Packager}          	L'instance Packager (permettant le cascade design pattern)
 	 */
@@ -51,7 +51,7 @@ class Packager {
 	}
 
 	/**
-	 * Getter: Récupère la valeur de la propriété input (tableau décrivant les objets à emballer)
+	 * Getter: Récupère la valeur du tableau décrivant les objets à emballer
 	 * @return {Array} La valeur de la propriété input
 	 */
 	get input() {
@@ -59,7 +59,7 @@ class Packager {
 	}
 
 	/**
-	 * Getter: Récupère la valeur de la propriété algorithm (fonction décrivant l'algorithme de résolution)
+	 * Getter: Récupère la fonction décrivant l'algorithme de résolution
 	 * @return {Function} La valeur de la propriété algorithm
 	 */
 	get algorithm() {
@@ -67,7 +67,7 @@ class Packager {
 	}
 
 	/**
-	 * Getter: Récupère la valeur de la propriété capacity (capacité maximale d'une boîte)
+	 * Getter: Récupère la valeur de la contanance maximale des cartons
 	 * @return {Array} La valeur de la propriété capacity
 	 */
 	get capacity() {
