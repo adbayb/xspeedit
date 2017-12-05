@@ -21,10 +21,12 @@ class MainPanel extends Component {
 	handleInputSubmit = input => {
 		this.packager.setInput(input);
 
-		const { raw: optiBoxes, formatted: formattedOptiBoxes } = this.packager
+		const { raw: optiBoxes, formatted: formattedOptiBoxes } = new Packager(10)
+			.setInput(input)
 			.setStrategy(optimizedAlgorithm)
 			.resolve();
-		const { raw: unoptiBoxes, formatted: formattedUnoptiBoxes } = this.packager
+		const { raw: unoptiBoxes, formatted: formattedUnoptiBoxes } = new Packager(10)
+			.setInput(input)
 			.setStrategy(unoptimizedAlgorithm)
 			.resolve();
 

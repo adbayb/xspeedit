@@ -100,7 +100,9 @@ class Packager {
 			);
 		}
 
-		this._algorithm = algo({ articles: this.input, capacity: this.capacity });
+		// @note: Renforcement de l'immutabilité en envoyant une copie (shallow) de l'input
+		// pour être sûr que les algorithmes n'altèrent pas directement la propriété input de l'instance Packager
+		this._algorithm = algo({ articles: [...this.input], capacity: this.capacity });
 	}
 
 	/**

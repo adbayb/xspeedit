@@ -2,15 +2,15 @@
 
 exports[`Chart should render correctly 1`] = `
 <section
-  className="jsx-509116290"
+  className="jsx-2374317178"
 >
   <h1
-    className="jsx-509116290"
+    className="jsx-2374317178"
   >
     CHART
   </h1>
   <div
-    className="jsx-509116290"
+    className="jsx-2374317178"
   >
     <div
       className="jsx-1123166150 box"
@@ -96,8 +96,8 @@ exports[`Chart should render correctly 1`] = `
     </div>
   </div>
   <JSXStyle
-    css="section.jsx-509116290{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-flex:1;-ms-flex:1;flex:1;padding:20px 10px;}section.jsx-509116290:nth-child(2){padding-bottom:0;}h1.jsx-509116290{margin:0 0 20px 0;font-size:12px;font-weight:bold;}div.jsx-509116290{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;overflow-x:scroll;-webkit-flex:1;-ms-flex:1;flex:1;}"
-    styleId="509116290"
+    css="section.jsx-2374317178{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-flex:1;-ms-flex:1;flex:1;padding:20px 10px;}section.jsx-2374317178:nth-child(2){padding-bottom:0;}h1.jsx-2374317178{margin:0 0 20px 0;font-size:12px;font-weight:bold;word-break:break-word;}div.jsx-2374317178{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;overflow-x:scroll;-webkit-flex:1;-ms-flex:1;flex:1;}"
+    styleId="2374317178"
   />
 </section>
 `;

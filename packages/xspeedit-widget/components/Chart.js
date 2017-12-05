@@ -90,6 +90,7 @@ class Chart extends PureComponent {
 						margin: 0 0 20px 0;
 						font-size: 12px;
 						font-weight: bold;
+						word-break: break-word;
 					}
 					div {
 						display: flex;

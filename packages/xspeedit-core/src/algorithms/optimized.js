@@ -92,12 +92,13 @@ export default ({ articles, capacity }) => {
 			const solution = findSolution(candidateArticle, ...others);
 			boxes = [...boxes, solution];
 
+			const nextRemainingArticles = [...remainingArticles];
 			solution.forEach(entry => {
-				remainingArticles.splice(remainingArticles.indexOf(entry), 1);
+				nextRemainingArticles.splice(nextRemainingArticles.indexOf(entry), 1);
 			});
 
-			// @note: retourne les sous-espaces restants:
-			return [...remainingArticles];
+			// @note: retourne les sous-domaines de recherche restants:
+			return [...nextRemainingArticles];
 		}, articles);
 
 		return { boxes };
