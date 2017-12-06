@@ -15,13 +15,13 @@ Parce qu'il est important de minimiser l'utilisation de carton
 	* [Spécification fonctionnelle](#spécification-fonctionnelle)
 - [Documentation technique](#documentation-technique)
 	* [Introduction](#introduction)
-	* [Prise en main](#prise-en-main-et-lancement-des-applications)
-	* [Consommation de la librairie xspeedit-core](#consommation-de-la-librairie-xspeedit-core)
+	* [Prise en main et lancement des applications](#prise-en-main-et-lancement-des-applications)
+	* [Consommation de la librairie xspeedit-core dans un projet tiers](#consommation-de-la-librairie-xspeedit-core-dans-un-projet-tiers)
 	* [Documentation des Apis et Composants](#documentation-des-apis-et-composants)
-	* [Pourquoi une architecture en monorepo ?](#pourquoi-une-architecture-en-monorepo)
+	* [Pourquoi une architecture en monorepo ?](#pourquoi-une-architecture-en-monorepo-)
 	* [Pipeline CI/CD](#pipeline-cicd)
 - [Liens utiles](#liens-utiles)
-- [License](#license)
+- [Licence](#licence)
 
 # Documentation fonctionnelle
 
@@ -105,7 +105,7 @@ Pour démarrer l'application backend node:
 
 **NB:** Les packages sont automatiquement transpilés en fonction de l'environnement node local via `babel-preset-env` (les fonctionnalités nécessaires manquantes sont automatiquement ajoutées au bundle généré). Cependant, nous conseillons d'utiliser une version Node.js LTS à minima **>= 6.X** ([voir le champs "engines" du package.json](./package.json)).
 
-## Consommation de la librairie xspeedit-core dans un projet externe
+## Consommation de la librairie xspeedit-core dans un projet tiers
 
 La librairie `xspeedit-core` peut-être consommée à la fois comme module CommonJS ou bien comme module ES2015 (et bénéficier dans ce dernier cas, en fonction du bundler, du tree shaking).
 
