@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu should render correctly 1`] = `
+<nav
+  className="jsx-138632900"
+>
+  <div
+    key="0"
+  >
+     
+    main
+     
+  </div>
+  <div
+    key="1"
+  >
+     
+    github
+     
+  </div>
+  <JSXStyle
+    css="nav.jsx-138632900{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;background-color:#303034;box-shadow:0 -4px 6px rgba(0,0,0,0.2);}"
+    styleId="138632900"
+  />
+</nav>
+`;

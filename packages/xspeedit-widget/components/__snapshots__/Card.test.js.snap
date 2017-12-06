@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should render correctly 1`] = `
+<article
+  className="jsx-2521222757"
+>
+  <div
+    className="jsx-2521222757"
+  >
+     Content 
+  </div>
+  <footer
+    className="jsx-2521222757"
+  >
+    <div>
+      Menu
+    </div>
+  </footer>
+  <JSXStyle
+    css="article.jsx-2521222757{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;background-color:#2d2e31;box-shadow:3px -1px 6px 0px rgba(0,0,0,0.3);overflow:hidden;}div.jsx-2521222757,footer.jsx-2521222757{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:relative;}footer.jsx-2521222757{-webkit-flex:2;-ms-flex:2;flex:2;}div.jsx-2521222757{-webkit-flex:12;-ms-flex:12;flex:12;}@media (max-width:768px){article.jsx-2521222757{-webkit-align-self:stretch;-ms-flex-item-align:stretch;align-self:stretch;}}@media (min-width:768px){article.jsx-2521222757{max-width:400px;height:600px;}}"
+    styleId="2521222757"
+  />
+</article>
+`;

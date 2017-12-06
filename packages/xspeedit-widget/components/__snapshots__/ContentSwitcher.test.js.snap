@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentSwitcher should render correctly when it's active 1`] = `
+<div
+  className="jsx-2628240846 active"
+>
+   Content 
+  <JSXStyle
+    css="div.jsx-2628240846{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;position:absolute;top:0;bottom:0;left:0;right:0;background-color:#2d2e31;-webkit-transition:all 500ms;transition:all 500ms;background:linear-gradient(to top,#232526,#414345);overflow-y:auto;}.active.jsx-2628240846{-webkit-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);transform:translate3d(0,0,0);opacity:1;visibility:visible;}.jsx-2628240846:not(.active){-webkit-transform:translate3d(0,50px,0);-ms-transform:translate3d(0,50px,0);transform:translate3d(0,50px,0);opacity:0;visibility:hidden;}"
+    styleId="2628240846"
+  />
+</div>
+`;
+
+exports[`ContentSwitcher should render correctly when it's not active 1`] = `
+<div
+  className="jsx-2628240846 "
+>
+   Content 
+  <JSXStyle
+    css="div.jsx-2628240846{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;position:absolute;top:0;bottom:0;left:0;right:0;background-color:#2d2e31;-webkit-transition:all 500ms;transition:all 500ms;background:linear-gradient(to top,#232526,#414345);overflow-y:auto;}.active.jsx-2628240846{-webkit-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);transform:translate3d(0,0,0);opacity:1;visibility:visible;}.jsx-2628240846:not(.active){-webkit-transform:translate3d(0,50px,0);-ms-transform:translate3d(0,50px,0);transform:translate3d(0,50px,0);opacity:0;visibility:hidden;}"
+    styleId="2628240846"
+  />
+</div>
+`;

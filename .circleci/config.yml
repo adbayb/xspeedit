@@ -1,0 +1,49 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # carbon est le nom de code pour la dernière version lts de node.js (ie. 8.9.1):
+      - image: circleci/node:carbon
+
+    # Steps décrit notre pipeline CI:
+    steps:
+      # Continuous Integration steps:
+      # Récupération du code (git checkout) depuis le repo distant:
+      - checkout
+
+      - restore_cache:
+          name: Restore node_modules cache
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+    
+      - run:
+          name: Nodejs Version
+          command: node --version
+
+      - run:
+          name: Install Packages
+          command: npm install
+
+      - run:
+          name: Test runner
+          command: npm test
+
+      - run:
+          name: Test coverage
+          command: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+      
+      # Continuous Deployment step:
+      - deploy:
+          name: Deploy
+          command: |
+            # eval since tild expansion not working in bash (bash couldn't substitute ~ to the home dir):
+            eval cd "$CIRCLE_WORKING_DIRECTORY/packages/xspeedit-core" && npm run deploy
+            eval cd "$CIRCLE_WORKING_DIRECTORY/packages/xspeedit-widget" && npm run deploy
+
+      - save_cache:
+          name: Save node_modules cache
+          key: v1-dependencies-{{ checksum "package.json" }}
+          paths:
+            - node_modules

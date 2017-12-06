@@ -60,4 +60,5 @@ typings/
 # Custom dirs/files
 .DS_Store
 dist/
-.env
+doc/
+out/

@@ -1,0 +1,29 @@
+{
+	"env": {
+		"test": {
+			"presets": [["env", { "modules": "commonjs" }]]
+		},
+		"node": {
+			"presets": [
+				[
+					"env",
+					{
+						"modules": false,
+						"targets": { "node": true }
+					}
+				]
+			]
+		},
+		"browser": {
+			"presets": [
+				[
+					"env",
+					{
+						"modules": false,
+						"targets": { "browsers": ["last 2 versions", "safari >= 7"] }
+					}
+				]
+			]
+		}
+	}
+}
