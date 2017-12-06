@@ -28,3 +28,16 @@ export const flattenArray = arr => {
 		})
 		.join("/");
 };
+
+/**
+ * Fonction définissant l'ordre de tri (utilisation avec Array.prototype.sort())
+ * @function
+ * @param {number}		a - Première valeur à comparer
+ * @param {number}		b - Seconde valeur à comparer
+ * @return {number}		-1 || 0 || 1 (cf. Array.prototype.sort() doc)
+ */
+export const compareAsc = (a, b) => {
+	if (a > b) return -1;
+	if (a < b) return 1;
+	return 0;
+};

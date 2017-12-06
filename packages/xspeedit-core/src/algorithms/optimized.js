@@ -1,4 +1,5 @@
 import Box from "../box";
+import { compareAsc } from "../utils.js";
 
 /**
  * Fonction définissant l'algorithme optimisé d'empaquetage des articles dans les cartons
@@ -49,46 +50,51 @@ export default ({ articles, capacity }) => {
 	let currentNode;
 	let bestNode;
 
-	const createNode = article => {
-		currentNode = new Box(capacity, article);
-		bestNode = currentNode;
-	};
-
 	const permuteNode = () => {
 		bestNode = currentNode;
 	};
 
-	const findSolution = (candidate, ...subdomain) => {
+	const findSolution = (article, ...subdomain) => {
 		// @note: taille === 10 <=> on ne peut pas trouver de meilleur candidat
 		// (on retourne dans ce cas, le meilleur noeud candidat):
 		if (bestNode.size === capacity || subdomain.length === 0) {
 			return bestNode.articles;
 		}
 
-		if (currentNode.size > bestNode.size) {
-			permuteNode();
+		currentNode = new Box(capacity, article);
+
+		for (let i = 0; i < subdomain.length; i++) {
+			const candidateArticle = subdomain[i];
+
+			currentNode.add(candidateArticle);
+			if (currentNode.size > bestNode.size) {
+				permuteNode();
+			}
 		}
 
-		if (!currentNode.add(subdomain[0])) {
-			currentNode = new Box(capacity, candidate);
-		}
+		// eslint-disable-next-line no-unused-vars
+		const [excludeCandidate, ...newSubdomain] = subdomain;
 
-		return findSolution(...subdomain);
+		return findSolution(article, ...newSubdomain);
 	};
 
 	return () => {
 		let boxes = [];
+		// @note:  [...articles].sort(compareAsc) comme valeur initialenous trions
+		// nos articles par taille décroissante pour que notre bestNode
+		// corresponde, à l'initialisation, à la borne supérieure:
+		const sortedArticles = [...articles].sort(compareAsc);
 
-		articles.reduce(remainingArticles => {
+		sortedArticles.reduce(remainingArticles => {
 			if (remainingArticles.length === 0) {
 				//@note: plus de candidats
 				return [];
 			}
 
 			const [candidateArticle, ...others] = remainingArticles;
-
-			createNode(candidateArticle);
-
+			// @note: nous définissons la borne supérieure avant d'effectuer la recherche de
+			// solution (correspondant à l'article (triée par ordre décroissant dans articles)):
+			bestNode = new Box(capacity, candidateArticle);
 			const solution = findSolution(candidateArticle, ...others);
 			boxes = [...boxes, solution];
 
@@ -99,7 +105,7 @@ export default ({ articles, capacity }) => {
 
 			// @note: retourne les sous-domaines de recherche restants:
 			return nextRemainingArticles;
-		}, articles);
+		}, sortedArticles);
 
 		return { boxes };
 	};

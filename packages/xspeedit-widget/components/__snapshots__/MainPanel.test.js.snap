@@ -3,31 +3,32 @@
 exports[`MainPanel should render correctly 1`] = `
 <MainPanel>
   <Input
-    label="Objets"
+    label="Articles"
     onSubmit={[Function]}
     onValidate={[Function]}
+    placeholder="Saississez les tailles [1-9]"
   >
     <form
-      className="jsx-2110388131"
+      className="jsx-3652573448"
       onSubmit={[Function]}
     >
       <label
-        className="jsx-2110388131"
+        className="jsx-3652573448"
         htmlFor="boxesInput"
       >
-        Objets
+        Articles
       </label>
       <input
-        className="jsx-2110388131"
+        className="jsx-3652573448"
         id="boxesInput"
         name="input"
         onChange={[Function]}
-        placeholder="Saisissez vos objets ([1-9])"
+        placeholder="Saississez les tailles [1-9]"
         type="number"
         value=""
       />
       <button
-        className="jsx-2110388131"
+        className="jsx-3652573448"
         disabled={true}
         type="submit"
       >
@@ -47,8 +48,8 @@ exports[`MainPanel should render correctly 1`] = `
         </Icon>
       </button>
       <JSXStyle
-        css="form.jsx-2110388131{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:none;-ms-flex:none;flex:none;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;background-color:#6c727f;}input.jsx-2110388131{width:calc(100% - 50px);font-size:0.9rem;margin:0 0.5rem;-webkit-appearance:none;-moz-appearance:textfield;-webkit-appearance:none;-moz-appearance:none;appearance:none;border:0;background-color:transparent;color:white;}input.jsx-2110388131::-webkit-input-placeholder{color:currentColor;}input.jsx-2110388131::-moz-placeholder{color:currentColor;}input.jsx-2110388131:-ms-input-placeholder{color:currentColor;}input.jsx-2110388131::placeholder{color:currentColor;}button.jsx-2110388131{padding:0 20px;background:none;border:none;border-radius:0;}button.jsx-2110388131:not([disabled]){background-color:#34b7b6;}label.jsx-2110388131{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;background-color:#565b68;margin:0;padding:1rem;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}"
-        styleId="2110388131"
+        css="form.jsx-3652573448{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:none;-ms-flex:none;flex:none;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;background-color:#6c727f;}input.jsx-3652573448{width:calc(100% - 50px);font-size:0.9rem;margin:0 0.5rem;-webkit-appearance:none;-moz-appearance:textfield;-webkit-appearance:none;-moz-appearance:none;appearance:none;border:0;background-color:transparent;color:white;}input.jsx-3652573448::-webkit-input-placeholder{color:lightgrey;}input.jsx-3652573448::-moz-placeholder{color:lightgrey;}input.jsx-3652573448:-ms-input-placeholder{color:lightgrey;}input.jsx-3652573448::placeholder{color:lightgrey;}button.jsx-3652573448{padding:0 20px;background:none;border:none;border-radius:0;}button.jsx-3652573448:not([disabled]){background-color:#34b7b6;}label.jsx-3652573448{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;background-color:#565b68;margin:0;padding:1rem;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}"
+        styleId="3652573448"
       />
     </form>
   </Input>

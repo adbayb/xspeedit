@@ -6,8 +6,13 @@ import Icon from "../components/Icon";
 class Input extends Component {
 	static propTypes = {
 		label: PropTypes.string,
+		placeholder: PropTypes.string,
 		onSubmit: PropTypes.func.isRequired,
 		onValidate: PropTypes.func.isRequired
+	};
+
+	static defaultProps = {
+		placeholder: "Veuillez effectuer votre saisie"
 	};
 
 	state = {
@@ -42,7 +47,7 @@ class Input extends Component {
 	};
 
 	render() {
-		const { label, onValidate } = this.props;
+		const { label, placeholder, onValidate } = this.props;
 		const { input } = this.state;
 
 		return (
@@ -53,7 +58,7 @@ class Input extends Component {
 					name="input"
 					value={input}
 					type="number"
-					placeholder="Saisissez vos objets ([1-9])"
+					placeholder={placeholder}
 					onChange={this.handleChange}
 				/>
 				<button type="submit" disabled={!onValidate(input)}>
@@ -78,7 +83,7 @@ class Input extends Component {
 						color: white;
 					}
 					input::placeholder {
-						color: currentColor;
+						color: lightgrey;
 					}
 					button {
 						padding: 0 20px;

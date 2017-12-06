@@ -1,4 +1,4 @@
-import { flattenArray, isValidNumber } from "./utils.js";
+import { compareAsc, flattenArray, isValidNumber } from "./utils.js";
 
 describe("Utils", () => {
 	describe("isValidNumber", () => {
@@ -41,6 +41,38 @@ describe("Utils", () => {
 			const ret = flattenArray(arr);
 			// THEN: nous remplissons notre cas de test:
 			expect(ret).toBe("12/");
+		});
+	});
+
+	describe("compareAsc", () => {
+		it("should return -1 when a > b", () => {
+			// GIVEN: deux entrées dummy a et b:
+			const a = 2;
+			const b = 1;
+			// WHEN: nous exécutons notre fonction utilitaire:
+			const ret = compareAsc(a, b);
+			// THEN: nous remplissons notre cas de test:
+			expect(ret).toBe(-1);
+		});
+
+		it("should return 1 when a < b", () => {
+			// GIVEN: deux entrées dummy a et b:
+			const a = 1;
+			const b = 2;
+			// WHEN: nous exécutons notre fonction utilitaire:
+			const ret = compareAsc(a, b);
+			// THEN: nous remplissons notre cas de test:
+			expect(ret).toBe(1);
+		});
+
+		it("should return 0 when a = b", () => {
+			// GIVEN: deux entrées dummy a et b:
+			const a = 1;
+			const b = 1;
+			// WHEN: nous exécutons notre fonction utilitaire:
+			const ret = compareAsc(a, b);
+			// THEN: nous remplissons notre cas de test:
+			expect(ret).toBe(0);
 		});
 	});
 });

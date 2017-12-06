@@ -41,7 +41,8 @@ class MainPanel extends Component {
 		return (
 			<Fragment>
 				<Input
-					label="Objets"
+					label="Articles"
+					placeholder="Saississez les tailles [1-9]"
 					onValidate={MainPanel.isInputValid}
 					onSubmit={this.handleInputSubmit}
 				/>

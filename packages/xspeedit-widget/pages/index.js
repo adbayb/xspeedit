@@ -42,7 +42,6 @@ class Widget extends Component {
 	};
 
 	render() {
-		// @todo: constante to enum all possible views:
 		const { currentView } = this.state;
 
 		return (
