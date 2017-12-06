@@ -83,7 +83,7 @@ class Input extends Component {
 						color: white;
 					}
 					input::placeholder {
-						color: lightgrey;
+						color: #9f9f9f;
 					}
 					button {
 						padding: 0 20px;

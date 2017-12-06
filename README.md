@@ -1,18 +1,26 @@
 # xspeedit [![CircleCI](https://circleci.com/gh/adbayb/xspeedit.svg?style=shield)](https://circleci.com/gh/adbayb/xspeedit) [![Coverage Status](https://coveralls.io/repos/github/adbayb/xspeedit/badge.svg?branch=master)](https://coveralls.io/github/adbayb/xspeedit?branch=master) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/adbayb/xspeedit/blob/master/LICENSE) [![GitHub package version](https://img.shields.io/badge/package-0.1.0-orange.svg)](https://github.com/adbayb/xspeedit/releases)
 
 
+Parce qu'il est important de minimiser l'utilisation de carton
 
-Parce qu'il est important de lutter contre le gaspillage de carton
+<p align="center">
+	<img width="400" src="https://user-images.githubusercontent.com/10498826/33670967-9c622d14-daa6-11e7-92d3-486286e117fd.png"
+	alt="screenshot" />
+</p>
 
 # Sommaire
 
 - [Documentation fonctionnelle](#documentation-fonctionnelle)
 	* [Contexte](#contexte)
-	* [Spécification fonctionnelle](#objectif)
+	* [Spécification fonctionnelle](#spécification-fonctionnelle)
 - [Documentation technique](#documentation-technique)
-	* [TODO](#introduction)
-	* [TODO](#objectif)
-- [Misc](#misc)
+	* [Introduction](#introduction)
+	* [Prise en main](#prise-en-main-et-lancement-des-applications)
+	* [Consommation de la librairie xspeedit-core](#consommation-de-la-librairie-xspeedit-core)
+	* [Documentation des Apis et Composants](#documentation-des-apis-et-composants)
+	* [Pourquoi une architecture en monorepo ?](#pourquoi-une-architecture-en-monorepo)
+	* [Pipeline CI/CD](#pipeline-cicd)
+- [Liens utiles](#liens-utiles)
 - [License](#license)
 
 # Documentation fonctionnelle
@@ -58,16 +66,26 @@ Robot optimisé: 163/82/46/19/8/55/73/7   => 8  cartons utilisés
 Le projet consiste en un monorepo contenant 3 packages: *xspeedit-core*, *xspeedit-widget* ainsi que
 *xspeedit-node*.
 
-Le package principal, _xspeedit-core_, est la librarie définissant l'ensemble de la logique
-d'empaquettage des articles dans les cartons.
+Le package principal, **xspeedit-core**, est la librarie définissant l'ensemble de la logique
+d'empaquetage des articles dans les cartons.
 
 Deux packages applicatifs consomment cette librairie:
 
 * **xspeedit-widget** ([Accessible ici](https://xspeedit.surge.sh/)): application isomorphique React. Cette
 	dernière fournit une interface front permettant la saisie des articles ainsi qu'une visualisation
-	graphique de l'empaquetage des articles.
+	graphique de l'empaquetage des articles:
 
-* **xspeedit-node**: application backend Node.js.
+<p align="center">
+	<img width="400"  src="https://user-images.githubusercontent.com/10498826/33671048-da273112-daa6-11e7-99f4-1180a5717a92.png"
+	alt="screenshot" />
+</p>
+
+* **xspeedit-node**: application backend Node.js:
+
+<p align="center">
+	<img width="500" src="https://user-images.githubusercontent.com/10498826/33672821-7a9b0d2c-daab-11e7-8ef0-0d77648370f2.png"
+	alt="screenshot" />
+</p>
 
 ## Prise en main et lancement des applications
 
@@ -79,19 +97,19 @@ Pour lancer les différentes applications, il est nécessaire de suivre les éta
 
 Puis:
 
-Pour démarrer l'application react:
+Pour démarrer l'application frontend react:
 - [x] `npm run start:widget`
 
-Pour démarrer l'application react:
+Pour démarrer l'application backend node:
 - [x] `npm run start:node`
 
-**NB:** Les packages sont automatiquement transpilés en fonction de l'environnement node local via `babel-preset-env` (les fonctionnalités nécessaires manquantes sont automatiquement ajoutées au bundle généré). Cependant, nous conseillons d'utiliser une version Node.js LTS à minima **>= 6.X** ([voir le champs "engines"](./package.json)).
+**NB:** Les packages sont automatiquement transpilés en fonction de l'environnement node local via `babel-preset-env` (les fonctionnalités nécessaires manquantes sont automatiquement ajoutées au bundle généré). Cependant, nous conseillons d'utiliser une version Node.js LTS à minima **>= 6.X** ([voir le champs "engines" du package.json](./package.json)).
 
 ## Consommation de la librairie xspeedit-core dans un projet externe
 
-La librairie `xspeedit-core` peut-être consommée à la fois comme module CommonJS ou bien ES2015.
+La librairie `xspeedit-core` peut-être consommée à la fois comme module CommonJS ou bien comme module ES2015 (et bénéficier dans ce dernier cas, en fonction du bundler, du tree shaking).
 
-En environnement de développement, il suffit de:
+Suivant votre environnement de développement, il suffit de:
 
 Dans le dossier root de `xspeedit`:
 - [x] `cd ./packages/xspeedit-core && npm link` (permet de générer un lien global vers le package `xspeedit-core`)
@@ -99,21 +117,21 @@ Dans le dossier root de `xspeedit`:
 A la racine de votre projet contenant votre `package.json`:
 - [x] `npm link xspeedit-core`
 
-En fonction de la configuration de votre bundler (webpack/rollup...), si vous développez avec une syntaxe **>= ES2015** (sur la gestion d'import/export): ce dernier va consommer le point d'entrée spécifié soit dans le champs `module` (module ES2015), soit dans le champs `main` (module CommonJS pour un projet server side) / `browser` (module CommonJS pour un projet client side) du package.json `xspeedit/packages/xspeedit-core/package.json`
+En fonction de la configuration de votre bundler (webpack/rollup...), ce dernier va consommer le point d'entrée spécifié soit dans le champs `module` (module ES2015), soit dans le champs `main` (module CommonJS pour un projet server side) / `browser` (module CommonJS pour un projet client side) du package.json situé dans `xspeedit/packages/xspeedit-core`
 
 ## Documentation des Apis et Composants
 
-`xspeedit` génère automatiquement la documentation à chaque `git push` sur le repository distant (à la fin de la [pipeline CI](#ci-cd)).
+**xspeedit** génère automatiquement la documentation à la fin de [la pipeline CI/CD](#pipeline-cicd).
 
 Les différentes documentations sont listées ci-dessus:
-- [Apis xspeedit-core](https://xspeedit-core.surge.sh/Packager.html)
-- [Styleguide composants React xspeedit-widget](https://xspeedit-core.surge.sh/Packager.html)
+- [Apis de la librairie xspeedit-core (JSDoc)](https://xspeedit-core.surge.sh/Packager.html)
+- [Styleguide composants du package xspeedit-widget (react-styleguidist)](https://xspeedit-core.surge.sh/Packager.html)
 
-## Pourquoi une architecture en mono-repo ?
+## Pourquoi une architecture en monorepo ?
 
-Jongler sur un projet multi-packages entre différents repositories est fastidieux.
+Jongler sur un projet multi-packages entre différents dépôts git est fastidieux.
 
-La structure multi-packages de `xspeedit` conduit naturellement à la mise en place d'un monorepo.
+La structure multi-packages de **xspeedit** conduit naturellement à la mise en place d'un monorepo.
 
 En effet, cette architecture présente plusieurs avantages:
 
@@ -121,11 +139,11 @@ En effet, cette architecture présente plusieurs avantages:
 - Coordiner facilement les modifications entre package
 - Centraliser la gestion de git (pull request, issues...)
 
-## Processus de développment et contributions
+## Processus de développement et contribution
 
 Les contributions sont bienvenue.
 
-Pour faciliter la contribution, l'uniformiser ainsi que garantir la qualité de code, le projet `xspeedit` contient différents outils:
+Pour faciliter la contribution, l'uniformiser ainsi que garantir la qualité de code, le monorepo **xspeedit** contient différents outils:
 
 - [Prettier](https://prettier.io/): formattage de code
 - [ESLint](https://eslint.org/): linter
@@ -141,7 +159,7 @@ Le projet utilise [CircleCI](https://circleci.com/gh/adbayb/xspeedit) comme plat
 Le pipeline d'intégration et de livraison continue est définit comme suit:
 
 <p align="center">
-	<img src="https://user-images.githubusercontent.com/10498826/33667209-8bc97c46-da9c-11e7-9d20-ef1a85fb2a88.png"
+	<img width="300" src="https://user-images.githubusercontent.com/10498826/33667209-8bc97c46-da9c-11e7-9d20-ef1a85fb2a88.png"
 	alt="screenshot" />
 </p>
 
@@ -150,10 +168,8 @@ Il est à noter que l'étape `Test coverage` se charge de générer et transmett
 # Liens utiles
 
 - [Application web](https://xspeedit.surge.sh)
-
-- [Apis xspeedit-core](https://xspeedit-core.surge.sh/Packager.html)
-- [Styleguide des composants xspeedit-widget](https://xspeedit-core.surge.sh/Packager.html)
-
+- [Apis de la librairie xspeedit-core](https://xspeedit-core.surge.sh/Packager.html)
+- [Styleguide des composants du package xspeedit-widget](https://xspeedit-core.surge.sh/Packager.html)
 - [Plateforme CI/CD du projet](https://circleci.com/gh/adbayb/xspeedit)
 - [Plateforme de couverture de tests du projet](https://coveralls.io/github/adbayb/xspeedit)
 

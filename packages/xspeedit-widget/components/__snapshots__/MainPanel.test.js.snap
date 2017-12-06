@@ -9,17 +9,17 @@ exports[`MainPanel should render correctly 1`] = `
     placeholder="Saississez les tailles [1-9]"
   >
     <form
-      className="jsx-3652573448"
+      className="jsx-270182753"
       onSubmit={[Function]}
     >
       <label
-        className="jsx-3652573448"
+        className="jsx-270182753"
         htmlFor="boxesInput"
       >
         Articles
       </label>
       <input
-        className="jsx-3652573448"
+        className="jsx-270182753"
         id="boxesInput"
         name="input"
         onChange={[Function]}
@@ -28,7 +28,7 @@ exports[`MainPanel should render correctly 1`] = `
         value=""
       />
       <button
-        className="jsx-3652573448"
+        className="jsx-270182753"
         disabled={true}
         type="submit"
       >
@@ -48,8 +48,8 @@ exports[`MainPanel should render correctly 1`] = `
         </Icon>
       </button>
       <JSXStyle
-        css="form.jsx-3652573448{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:none;-ms-flex:none;flex:none;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;background-color:#6c727f;}input.jsx-3652573448{width:calc(100% - 50px);font-size:0.9rem;margin:0 0.5rem;-webkit-appearance:none;-moz-appearance:textfield;-webkit-appearance:none;-moz-appearance:none;appearance:none;border:0;background-color:transparent;color:white;}input.jsx-3652573448::-webkit-input-placeholder{color:lightgrey;}input.jsx-3652573448::-moz-placeholder{color:lightgrey;}input.jsx-3652573448:-ms-input-placeholder{color:lightgrey;}input.jsx-3652573448::placeholder{color:lightgrey;}button.jsx-3652573448{padding:0 20px;background:none;border:none;border-radius:0;}button.jsx-3652573448:not([disabled]){background-color:#34b7b6;}label.jsx-3652573448{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;background-color:#565b68;margin:0;padding:1rem;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}"
-        styleId="3652573448"
+        css="form.jsx-270182753{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:none;-ms-flex:none;flex:none;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;background-color:#6c727f;}input.jsx-270182753{width:calc(100% - 50px);font-size:0.9rem;margin:0 0.5rem;-webkit-appearance:none;-moz-appearance:textfield;-webkit-appearance:none;-moz-appearance:none;appearance:none;border:0;background-color:transparent;color:white;}input.jsx-270182753::-webkit-input-placeholder{color:#9f9f9f;}input.jsx-270182753::-moz-placeholder{color:#9f9f9f;}input.jsx-270182753:-ms-input-placeholder{color:#9f9f9f;}input.jsx-270182753::placeholder{color:#9f9f9f;}button.jsx-270182753{padding:0 20px;background:none;border:none;border-radius:0;}button.jsx-270182753:not([disabled]){background-color:#34b7b6;}label.jsx-270182753{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;background-color:#565b68;margin:0;padding:1rem;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}"
+        styleId="270182753"
       />
     </form>
   </Input>
