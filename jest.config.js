@@ -1,9 +1,16 @@
 module.exports = {
+	// @note: Nous affichons les logs complets de test:
 	verbose: true,
 
-	projects: ["packages/xspeedit-core", "packages/xspeedit-widget", "packages/xspeedit-node"],
+	// @note: La configuration suivant permet de spécifier à Jest de se
+	// lancer dans tous les sous-dossiers du dossier ./packages:
+	// @warning: Il faut bien faire attention de mettre en dépendances
+	// babel-jest (mais aussi babel-core ainsi que regenerator-runtime)
+	// dans chaque sous-dossier utilisant babel comme transpilateur
+	// cf. https://facebook.github.io/jest/docs/en/getting-started.html#using-babel:
+	projects: ["<rootDir>/packages/*"],
 
-	// @note: coverage configurations:
+	// @note: configurations de la couverture de test:
 	collectCoverage: true,
 	coverageDirectory: "./coverage",
 	collectCoverageFrom: [
