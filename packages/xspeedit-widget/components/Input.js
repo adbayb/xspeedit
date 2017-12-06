@@ -53,7 +53,7 @@ class Input extends Component {
 					name="input"
 					value={input}
 					type="number"
-					placeholder="Saisissez vos objets (taille comprise entre 1 et 9)"
+					placeholder="Saisissez vos objets ([1-9])"
 					onChange={this.handleChange}
 				/>
 				<button type="submit" disabled={!onValidate(input)}>

@@ -8,6 +8,7 @@ export default {
 		file: `dist/app.js`,
 		format: "cjs"
 	},
+	external: ["readline"],
 	plugins: [
 		// @note: resolve() autorise la résolution des "index.js", module, dans les imports/exports...:
 		resolve(),

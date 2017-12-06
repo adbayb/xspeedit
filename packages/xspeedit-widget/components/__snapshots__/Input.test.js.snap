@@ -16,7 +16,7 @@ exports[`Input should render correctly 1`] = `
     id="boxesInput"
     name="input"
     onChange={[Function]}
-    placeholder="Saisissez vos objets (taille comprise entre 1 et 9)"
+    placeholder="Saisissez vos objets ([1-9])"
     type="number"
     value=""
   />

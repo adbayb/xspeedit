@@ -98,7 +98,7 @@ export default ({ articles, capacity }) => {
 			});
 
 			// @note: retourne les sous-domaines de recherche restants:
-			return [...nextRemainingArticles];
+			return nextRemainingArticles;
 		}, articles);
 
 		return { boxes };
