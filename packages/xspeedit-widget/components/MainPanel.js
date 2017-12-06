@@ -14,7 +14,8 @@ class MainPanel extends Component {
 		optiBoxes: [],
 		unoptiBoxes: [],
 		formattedOptiBoxes: [],
-		formattedUnoptiBoxes: []
+		formattedUnoptiBoxes: [],
+		placeholder: "Saississez les tailles [1-9]"
 	};
 	packager = new Packager(10);
 
@@ -30,11 +31,23 @@ class MainPanel extends Component {
 			.setStrategy(unoptimizedAlgorithm)
 			.resolve();
 
-		this.setState(() => ({ optiBoxes, unoptiBoxes, formattedOptiBoxes, formattedUnoptiBoxes }));
+		this.setState(() => ({
+			optiBoxes,
+			unoptiBoxes,
+			formattedOptiBoxes,
+			formattedUnoptiBoxes,
+			placeholder: input
+		}));
 	};
 
 	render() {
-		const { optiBoxes, unoptiBoxes, formattedOptiBoxes, formattedUnoptiBoxes } = this.state;
+		const {
+			optiBoxes,
+			unoptiBoxes,
+			formattedOptiBoxes,
+			formattedUnoptiBoxes,
+			placeholder
+		} = this.state;
 		const isEmptyResult =
 			unoptiBoxes && unoptiBoxes.length === 0 && optiBoxes && optiBoxes.length === 0;
 
@@ -42,7 +55,7 @@ class MainPanel extends Component {
 			<Fragment>
 				<Input
 					label="Articles"
-					placeholder="Saississez les tailles [1-9]"
+					placeholder={placeholder}
 					onValidate={MainPanel.isInputValid}
 					onSubmit={this.handleInputSubmit}
 				/>

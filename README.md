@@ -1,53 +1,162 @@
 # xspeedit [![CircleCI](https://circleci.com/gh/adbayb/xspeedit.svg?style=shield)](https://circleci.com/gh/adbayb/xspeedit) [![Coverage Status](https://coveralls.io/repos/github/adbayb/xspeedit/badge.svg?branch=master)](https://coveralls.io/github/adbayb/xspeedit?branch=master) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/adbayb/xspeedit/blob/master/LICENSE) [![GitHub package version](https://img.shields.io/badge/package-0.1.0-orange.svg)](https://github.com/adbayb/xspeedit/releases)
 
+
+
 Parce qu'il est important de lutter contre le gaspillage de carton
 
-# Spécifications:
+# Sommaire
 
-// TODO
+- [Documentation fonctionnelle](#documentation-fonctionnelle)
+	* [Contexte](#contexte)
+	* [Spécification fonctionnelle](#objectif)
+- [Documentation technique](#documentation-technique)
+	* [TODO](#introduction)
+	* [TODO](#objectif)
+- [Misc](#misc)
+- [License](#license)
 
-# Introduction:
+# Documentation fonctionnelle
 
-Le projet consiste en un monorepo contenant 3 packages: xspeedit-core, xspeedit-widget ainsi que
-xspeedit-node.
+## Contexte
 
-Le package principal, xspeedit-core, est la librarie définissant l'ensemble de la logique
+XspeedIt est une société d'import / export ayant robotisé toute sa chaîne d'emballage de colis.
+Elle souhaite trouver un algorithme permettant à ses robots d'optimiser le nombre de cartons d'emballage utilisés.
+
+Les articles à emballer sont de taille variable, représentée par un entier compris entre 1 et 9.
+Chaque carton a une capacité de contenance de 10.
+Ainsi, un carton peut par exemple contenir un article de taille 3, un article de taille 1, et un article de taille 6.
+
+La chaîne d'articles à emballer est représentée par une suite de chiffres, chacun représentant un article par sa taille.
+Après traitement par le robot d'emballage, la chaîne est séparée par des "/" pour représenter les articles contenus dans un carton.
+
+*Exemple*
+```python
+Chaîne d'articles en entrée : 163841689525773
+Chaîne d'articles emballés  : 163/8/41/6/8/9/52/5/7/73
+```
+
+L'algorithme actuel du robot d'emballage est très basique.
+Il prend les articles les uns après les autres, et les mets dans un carton.
+Si la taille totale dépasse la contenance du carton, le robot met l'article dans le carton suivant.
+
+## Spécification fonctionnelle
+
+Implémenter une application qui permettrait de maximiser le nombre d'articles par carton, en utilisant un langage pouvant être exécuté sur une JVM 1.7 minimum ou en node.js.
+L'ordre des cartons et des articles n'a pas d'importance.
+
+*Exemple*
+```python
+Articles      : 163841689525773
+Robot actuel  : 163/8/41/6/8/9/52/5/7/73 => 10 cartons utilisés
+Robot optimisé: 163/82/46/19/8/55/73/7   => 8  cartons utilisés
+```
+
+# Documentation technique
+
+## Introduction
+
+Le projet consiste en un monorepo contenant 3 packages: *xspeedit-core*, *xspeedit-widget* ainsi que
+*xspeedit-node*.
+
+Le package principal, _xspeedit-core_, est la librarie définissant l'ensemble de la logique
 d'empaquettage des articles dans les cartons.
 
-Deux packages applicatifs consomme cette librairie:
+Deux packages applicatifs consomment cette librairie:
 
-* xspeedit-widget (todo: lien de l'application hostée): application isomorphique React. Cette
+* **xspeedit-widget** ([Accessible ici](https://xspeedit.surge.sh/)): application isomorphique React. Cette
 	dernière fournit une interface front permettant la saisie des articles ainsi qu'une visualisation
 	graphique de l'empaquetage des articles.
 
-* xspeedit-node: application backend Node.js.
+* **xspeedit-node**: application backend Node.js.
 
-# Consommation de la librairie core:
+## Prise en main et lancement des applications
 
-// TODO
+Pour lancer les différentes applications, il est nécessaire de suivre les étapes suivantes:
 
-# Pourquoi la création d'un monorepo ?
+- [x] `git clone https://github.com/adbayb/xspeedit.git`
+- [x] `cd xspeedit`
+- [x] `npm install` (installe l'ensemble des dépendances des différents packages du monorepo)
 
-La création d'un monorepo permet de mutualiser la configuration (test, pipeline ci), le code...
+Puis:
 
-// TODO : rechercher les avantages d'un monorepo...
+Pour démarrer l'application react:
+- [x] `npm run start:widget`
 
-# Lancement projet:
+Pour démarrer l'application react:
+- [x] `npm run start:node`
 
-Docker ?
+**NB:** Les packages sont automatiquement transpilés en fonction de l'environnement node local via `babel-preset-env` (les fonctionnalités nécessaires manquantes sont automatiquement ajoutées au bundle généré). Cependant, nous conseillons d'utiliser une version Node.js LTS à minima **>= 6.X** ([voir le champs "engines"](./package.json)).
 
-npm start pour chaque package
+## Consommation de la librairie xspeedit-core dans un projet externe
 
-# Pipeline CI :
+La librairie `xspeedit-core` peut-être consommée à la fois comme module CommonJS ou bien ES2015.
 
-// TODO screeshot circle ci steps ou le faire via un outil
+En environnement de développement, il suffit de:
 
-Test coverage 100%
+Dans le dossier root de `xspeedit`:
+- [x] `cd ./packages/xspeedit-core && npm link` (permet de générer un lien global vers le package `xspeedit-core`)
 
-# Documentations techniques:
+A la racine de votre projet contenant votre `package.json`:
+- [x] `npm link xspeedit-core`
 
-* Styleguide (banque de composants xspeedit-widget):
+En fonction de la configuration de votre bundler (webpack/rollup...), si vous développez avec une syntaxe **>= ES2015** (sur la gestion d'import/export): ce dernier va consommer le point d'entrée spécifié soit dans le champs `module` (module ES2015), soit dans le champs `main` (module CommonJS pour un projet server side) / `browser` (module CommonJS pour un projet client side) du package.json `xspeedit/packages/xspeedit-core/package.json`
 
-* Apis core (xspeedit-core):
+## Documentation des Apis et Composants
 
-# Liens utiles:
+`xspeedit` génère automatiquement la documentation à chaque `git push` sur le repository distant (à la fin de la [pipeline CI](#ci-cd)).
+
+Les différentes documentations sont listées ci-dessus:
+- [Apis xspeedit-core](https://xspeedit-core.surge.sh/Packager.html)
+- [Styleguide composants React xspeedit-widget](https://xspeedit-core.surge.sh/Packager.html)
+
+## Pourquoi une architecture en mono-repo ?
+
+Jongler sur un projet multi-packages entre différents repositories est fastidieux.
+
+La structure multi-packages de `xspeedit` conduit naturellement à la mise en place d'un monorepo.
+
+En effet, cette architecture présente plusieurs avantages:
+
+- Centraliser la configuration et les tâches (lint, test, formattage, pipeline d'intégration continue/de déploiement continu...)
+- Coordiner facilement les modifications entre package
+- Centraliser la gestion de git (pull request, issues...)
+
+## Processus de développment et contributions
+
+Les contributions sont bienvenue.
+
+Pour faciliter la contribution, l'uniformiser ainsi que garantir la qualité de code, le projet `xspeedit` contient différents outils:
+
+- [Prettier](https://prettier.io/): formattage de code
+- [ESLint](https://eslint.org/): linter
+- [Jest](https://eslint.org/): test unitaire ainsi que génération de rapport de couverture de test (nous fixons **un minimum de 80%** de couverture de tests sur l'ensemble du monorepo)
+- [Commitizen](http://commitizen.github.io/cz-cli/): formattage du commit suivant un périmètre via `git cz`
+- [lint-staged](https://github.com/okonet/lint-staged): lancement de la vérification de la qualité de code (le projet lance la vérification statique du code (via le linter), les tests unitaires, la couverture de test ainsi que le formattage du code)
+- [husky](https://github.com/typicode/husky): configuré comme hook de precommit (ce dernier lance `lint-staged`)
+
+## Pipeline CI/CD
+
+Le projet utilise [CircleCI](https://circleci.com/gh/adbayb/xspeedit) comme plateforme CI/CD
+
+Le pipeline d'intégration et de livraison continue est définit comme suit:
+
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/10498826/33667209-8bc97c46-da9c-11e7-9d20-ef1a85fb2a88.png"
+	alt="screenshot" />
+</p>
+
+Il est à noter que l'étape `Test coverage` se charge de générer et transmettre la couverture de test au service [Coveralls](https://coveralls.io/github/adbayb/xspeedit).
+
+# Liens utiles
+
+- [Application web](https://xspeedit.surge.sh)
+
+- [Apis xspeedit-core](https://xspeedit-core.surge.sh/Packager.html)
+- [Styleguide des composants xspeedit-widget](https://xspeedit-core.surge.sh/Packager.html)
+
+- [Plateforme CI/CD du projet](https://circleci.com/gh/adbayb/xspeedit)
+- [Plateforme de couverture de tests du projet](https://coveralls.io/github/adbayb/xspeedit)
+
+# Licence
+
+[MIT](./LICENSE "License MIT")
