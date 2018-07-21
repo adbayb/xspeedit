@@ -1,43 +1,43 @@
 {
-  "name": "xspeedit-widget",
-  "private": true,
-  "version": "0.1.0",
-  "description": "Application web consommant la librarie xspeedit",
-  "scripts": {
-    "prestart": "npm run build",
-    "preexport": "npm run build",
-    "prebuild": "npm run clean",
-    "clean": "rimraf ./dist ./out",
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "export": "npm run build && next export",
-    "styleguide:serve": "styleguidist server",
-    "styleguide": "styleguidist build",
-    "deploy:styleguide": "npm run styleguide && cp -R ./static ./styleguide && surge --project ./styleguide --domain xspeedit-styleguide.surge.sh",
-    "deploy:app": "npm run export && surge --project ./out --domain xspeedit.surge.sh",
-    "deploy": "npm run deploy:app && npm run deploy:styleguide"
-  },
-  "author": "Ayoub Adib <adbayb@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "classnames": "2.2.5",
-    "next": "4.1.4",
-    "react": "16.2.0",
-    "react-dom": "16.2.0",
-    "react-styleguidist": "6.0.33",
-    "xspeedit-core": "../xspeedit-core"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-jest": "^21.2.0",
-    "babel-preset-react": "6.24.1",
-    "enzyme": "3.2.0",
-    "enzyme-adapter-react-16": "1.1.0",
-    "enzyme-to-json": "3.2.2",
-    "prop-types": "15.6.0",
-    "regenerator-runtime": "^0.11.0",
-    "rimraf": "2.6.2",
-    "surge": "0.19.0"
-  }
+	"name": "xspeedit-widget",
+	"private": true,
+	"version": "0.1.0",
+	"description": "Application web consommant la librarie xspeedit",
+	"scripts": {
+		"prestart": "npm run build",
+		"preexport": "npm run build",
+		"prebuild": "npm run clean",
+		"clean": "rimraf ./dist ./out",
+		"dev": "next",
+		"build": "next build",
+		"start": "next start",
+		"export": "npm run build && next export",
+		"styleguide:serve": "styleguidist server",
+		"styleguide": "styleguidist build",
+		"deploy:styleguide": "npm run styleguide && cp -R ./static ./styleguide && surge --project ./styleguide --domain xspeedit-styleguide.surge.sh",
+		"deploy:app": "npm run export && surge --project ./out --domain xspeedit.surge.sh",
+		"deploy": "npm run deploy:app && npm run deploy:styleguide"
+	},
+	"author": "Ayoub Adib <adbayb@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"classnames": "2.2.6",
+		"next": "5.1.0",
+		"react": "16.4.1",
+		"react-dom": "16.4.1",
+		"react-styleguidist": "7.1.0",
+		"xspeedit-core": "../xspeedit-core"
+	},
+	"devDependencies": {
+		"babel-core": "^6.26.3",
+		"babel-jest": "^23.4.0",
+		"babel-preset-react": "6.24.1",
+		"enzyme": "3.3.0",
+		"enzyme-adapter-react-16": "1.1.1",
+		"enzyme-to-json": "3.3.4",
+		"prop-types": "15.6.2",
+		"regenerator-runtime": "^0.12.0",
+		"rimraf": "2.6.2",
+		"surge": "0.20.1"
+	}
 }
